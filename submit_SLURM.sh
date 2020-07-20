@@ -20,7 +20,7 @@
 # Benjamin C. Haller, 19 July 2020
 
 #SBATCH --nodes=1
-#SBATCH --exclude=cbsubscb8,cbsubscb9,cbsubscb10,cbsubscb11,cbsubscb12,cbsubscb13,cbsubscb14,cbsubscb15,cbsubscbgpu01
+#SBATCH --exclude=cbsubscb08,cbsubscb09,cbsubscb10,cbsubscb11,cbsubscb12,cbsubscb13,cbsubscb14,cbsubscb15,cbsubscbgpu01
 #SBATCH --ntasks=32
 #SBATCH --mem=256000
 #SBATCH --time=1-0:00:00
