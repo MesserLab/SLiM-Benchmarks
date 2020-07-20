@@ -1,0 +1,30 @@
+/*
+	T_sumOfMutationsOfType.slim
+	
+	This exercises Individual method -sumOfMutationsOfType()
+*/
+
+initialize() {
+	initializeMutationRate(3e-7);
+	initializeMutationType("m1", 0.5, "f", 0.0);       // neutral
+	initializeMutationType("m2", 0.5, "n", 0.0, 0.2);  // QTLs
+	m2.convertToSubstitution = F;
+	initializeGenomicElementType("g1", m1, 1);
+	initializeGenomicElementType("g2", m1, 1);
+	initializeGenomicElement(g1, 0, 20000);
+	initializeGenomicElement(g2, 20001, 22000);
+	initializeGenomicElement(g1, 22001, 9999999);
+	initializeRecombinationRate(1e-8);
+}
+fitness(m2) { return 1.0; }
+1 { sim.addSubpop("p1", 100); }
+199 late() {
+	sim.chromosome.setMutationRate(0.0);
+	sim.chromosome.setRecombinationRate(0.0);
+	p1.setCloningRate(1.0);
+	p1.setSubpopulationSize(1000000);
+}
+200 late() {
+	inds = sim.subpopulations.individuals;
+	for (i in 1:100) phenotypes = inds.sumOfMutationsOfType(m2);
+}

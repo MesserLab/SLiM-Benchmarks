@@ -1,0 +1,36 @@
+/*
+	turnover_nonWF.slim
+	
+	Rapid turnover of a population with no mutation or recombination.  This exercises
+	the reproduction machinery, in terms of generation of new individuals, for nonWF.
+*/
+
+initialize() {
+	initializeSLiMModelType("nonWF");
+	defineConstant("K", 1000000);	// carrying capacity
+	
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	m1.convertToSubstitution = T;
+	
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, 0);
+	initializeMutationRate(0);
+	initializeRecombinationRate(0);
+}
+
+reproduction() {
+	for (ind in p1.individuals)
+		subpop.addCrossed(individual, individual);
+	self.active = 0;
+}
+
+1 early() {
+	sim.addSubpop("p1", K);
+}
+
+early() {
+	inds = p1.individuals;
+	inds[inds.age > 0].fitnessScaling = 0;
+}
+
+100 late() { }

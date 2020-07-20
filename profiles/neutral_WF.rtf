@@ -1,0 +1,35 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww36560\viewh15040\viewkind0
+\pard\tx3281\tx5263\tx5482\tx6480\tx7200\tx7920\tx8640\li9350\fi-9351\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 2.66 min  100.0%	0 s	 	slim (94163)\
+2.66 min  100.0%	0 s	 	 Main Thread  0x30164d\
+2.66 min   99.9%	0 s	 	  start\
+2.66 min   99.9%	0 s	 	   main\
+2.66 min   99.9%	0 s	 	    SLiMSim::_RunOneGenerationWF()\
+1.56 min   58.4%	320.00 ms	 	     Population::EvolveSubpopulation(Subpopulation&, bool, bool, bool, bool)\
+1.54 min   57.9%	43.85 s	 	      Population::DoCrossoverMutation(Subpopulation*, Genome&, int, IndividualSex, IndividualSex, std::__1::vector<SLiMEidosBlock*, std::__1::allocator<SLiMEidosBlock*> >*, std::__1::vector<SLiMEidosBlock*, std::__1::allocator<SLiMEidosBlock*> >*)\
+30.67 s   19.1%	4.13 s	 	       MutationRun::emplace_back(int)\
+26.40 s   16.5%	131.00 ms	 	        realloc\
+6.14 s    3.8%	224.00 ms	 	       Chromosome::DrawNewMutation(IndividualSex, int, int) const\
+3.99 s    2.4%	3.62 s	 	        SLiM_NewMutationFromBlock()\
+4.82 s    3.0%	4.82 s	 	       MutationRun::end_pointer_const() const\
+4.76 s    2.9%	2.13 s	 	       Genome::copy_from_genome(Genome const&)\
+2.62 s    1.6%	0 s	 	        Eidos_intrusive_ptr<MutationRun>::operator=(Eidos_intrusive_ptr<MutationRun> const&)\
+2.53 s    1.5%	2.53 s	 	         Eidos_intrusive_ptr<MutationRun>::swap(Eidos_intrusive_ptr<MutationRun>&)\
+1.04 s    0.6%	57.00 ms	 	       Genome::WillCreateRun(int)\
+33.76 s   21.1%	0 s	 	     Population::MaintainRegistry()\
+33.76 s   21.1%	0 s	 	      Population::TallyMutationReferences(std::__1::vector<Subpopulation*, std::__1::allocator<Subpopulation*> >*, bool)\
+33.76 s   21.1%	137.00 ms	 	       Population::TallyMutationReferences_FAST()\
+33.56 s   20.9%	33.15 s	 	        Genome::TallyGenomeMutationReferences(long long)\
+24.99 s   15.6%	267.00 ms	 	     Population::UniqueMutationRuns()\
+10.69 s    6.6%	0 s	 	      std::__1::__map_iterator<std::__1::__tree_iterator<std::__1::__value_type<long long, MutationRun*>, std::__1::__tree_node<std::__1::__value_type<long long, MutationRun*>, void*>*, long> >::operator++()\
+8.57 s    5.3%	4.19 s	 	      MutationRun::Identical(MutationRun&)\
+4.39 s    2.7%	0 s	 	      std::__1::multimap<long long, MutationRun*, std::__1::less<long long>, std::__1::allocator<std::__1::pair<long long const, MutationRun*> > >::equal_range(long long const&)\
+4.20 s    2.6%	3.45 s	 	     Population::RemoveAllFixedMutations()\
+1.81 s    1.1%	77.00 ms	 	     Population::ClearParentalGenomes()\
+1.74 s    1.0%	138.00 ms	 	      Genome::clear_to_nullptr()\
+}

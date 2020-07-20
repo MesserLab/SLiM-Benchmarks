@@ -1,0 +1,18 @@
+/*
+	T_sum_float.slim
+	
+	This exercises Eidos function sum(float x)
+*/
+
+initialize() {
+	initializeMutationRate(1e-7);
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, 99999);
+	initializeRecombinationRate(1e-8);
+}
+1 {
+	y = 1.0:1000000;
+	for (i in 1:100000) x = sum(y);
+}
+

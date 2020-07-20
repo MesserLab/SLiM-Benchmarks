@@ -1,0 +1,78 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww43200\viewh19880\viewkind0
+\pard\tx3281\tx5263\tx5482\tx6480\tx7200\tx7920\tx8640\li9350\fi-9351\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Weight	Self Weight		Symbol Name\
+38.70 s  100.0%	0 s	 	slim (4792)\
+38.70 s  100.0%	0 s	 	 Main Thread  0x58f810\
+38.69 s   99.9%	0 s	 	  start\
+38.69 s   99.9%	1.00 ms	 	   main\
+38.69 s   99.9%	1.22 s	 	    SLiMSim::_RunOneGenerationNonWF()\
+19.09 s   49.3%	53.00 ms	 	     Subpopulation::ReproduceSubpopulation()\
+19.04 s   49.2%	348.00 ms	 	      Subpopulation::ApplyReproductionCallbacks(std::__1::vector<SLiMEidosBlock*, std::__1::allocator<SLiMEidosBlock*> >&, int)\
+18.68 s   48.2%	0 s	 	       EidosInterpreter::EvaluateInternalBlock(EidosScript*)\
+18.68 s   48.2%	0 s	 	        EidosInterpreter::FastEvaluateNode(EidosASTNode const*)\
+18.68 s   48.2%	0 s	 	         EidosInterpreter::Evaluate_CompoundStatement(EidosASTNode const*)\
+18.68 s   48.2%	1.00 ms	 	          EidosInterpreter::FastEvaluateNode(EidosASTNode const*)\
+18.66 s   48.2%	145.00 ms	 	           EidosInterpreter::Evaluate_For(EidosASTNode const*)\
+17.91 s   46.2%	283.00 ms	 	            EidosInterpreter::FastEvaluateNode(EidosASTNode const*)\
+16.41 s   42.4%	1.30 s	 	             EidosInterpreter::Evaluate_Call(EidosASTNode const*)\
+10.27 s   26.5%	249.00 ms	 	              EidosValue_Object_singleton::ExecuteMethodCall(unsigned int, EidosInstanceMethodSignature const*, Eidos_intrusive_ptr<EidosValue> const*, int, EidosInterpreter&)\
+9.62 s   24.8%	257.00 ms	 	               Subpopulation::ExecuteInstanceMethod(unsigned int, Eidos_intrusive_ptr<EidosValue> const*, int, EidosInterpreter&)\
+9.29 s   24.0%	2.31 s	 	                Subpopulation::ExecuteMethod_addCrossed(unsigned int, Eidos_intrusive_ptr<EidosValue> const*, int, EidosInterpreter&)\
+4.57 s   11.8%	1.62 s	 	                 Population::DoCrossoverMutation(Subpopulation*, Genome&, int, IndividualSex, IndividualSex, std::__1::vector<SLiMEidosBlock*, std::__1::allocator<SLiMEidosBlock*> >*, std::__1::vector<SLiMEidosBlock*, std::__1::allocator<SLiMEidosBlock*> >*)\
+1.31 s    3.3%	383.00 ms	 	                  Chromosome::DrawMutationAndBreakpointCounts(IndividualSex, int*, int*) const\
+930.00 ms    2.4%	228.00 ms	 	                   Eidos_rng_uniform(gsl_rng*)\
+808.00 ms    2.0%	537.00 ms	 	                  Genome::copy_from_genome(Genome const&)\
+212.00 ms    0.5%	0 s	 	                   Eidos_intrusive_ptr<MutationRun>::operator=(Eidos_intrusive_ptr<MutationRun> const&)\
+259.00 ms    0.6%	259.00 ms	 	                  Genome::IsNull() const\
+242.00 ms    0.6%	222.00 ms	 	                  Eidos_RandomBool()\
+473.00 ms    1.2%	375.00 ms	 	                 Subpopulation::NewSubpopGenome(int, long long, GenomeType, bool)\
+464.00 ms    1.1%	464.00 ms	 	                 EidosObjectPool::AllocateChunk()\
+432.00 ms    1.1%	53.00 ms	 	                 Individual::Individual(Subpopulation&, int, long long, Genome*, Genome*, IndividualSex, int, double)\
+336.00 ms    0.8%	94.00 ms	 	                 EidosValue_Object_singleton::EidosValue_Object_singleton(EidosObjectElement*, EidosObjectClass const*, bool)\
+335.00 ms    0.8%	334.00 ms	 	                 Subpopulation::_GenomeConfigurationForSex(EidosValue*, GenomeType&, GenomeType&, bool&, bool&)\
+123.00 ms    0.3%	123.00 ms	 	                 EidosValue_Object_singleton::ObjectElementAtIndex(int, EidosToken const*) const\
+349.00 ms    0.9%	288.00 ms	 	               EidosCallSignature::CheckReturn(EidosValue const&) const\
+2.62 s    6.7%	754.00 ms	 	              EidosInterpreter::_ProcessArgumentList(EidosASTNode const*, EidosCallSignature const*, Eidos_intrusive_ptr<EidosValue>*)\
+1.27 s    3.2%	181.00 ms	 	              EidosInterpreter::FastEvaluateNode(EidosASTNode const*)\
+191.00 ms    0.4%	0 s	 	              Eidos_intrusive_ptr<EidosValue>::reset()\
+172.00 ms    0.4%	172.00 ms	 	              EidosScript::PushErrorPositionFromToken(EidosToken const*)\
+125.00 ms    0.3%	125.00 ms	 	              EidosValue_Object::Class() const\
+1.19 s    3.0%	0 s	 	             EidosInterpreter::Evaluate_MemberRef(EidosASTNode const*)\
+595.00 ms    1.5%	0 s	 	            Eidos_intrusive_ptr<EidosValue>::~Eidos_intrusive_ptr()\
+6.41 s   16.5%	0 s	 	     Population::ExecuteScript(SLiMEidosBlock*, int, Chromosome const&)\
+6.29 s   16.2%	0 s	 	      EidosInterpreter::EvaluateInternalBlock(EidosScript*)\
+6.29 s   16.2%	0 s	 	       EidosInterpreter::FastEvaluateNode(EidosASTNode const*)\
+6.29 s   16.2%	0 s	 	        EidosInterpreter::Evaluate_CompoundStatement(EidosASTNode const*)\
+6.29 s   16.2%	0 s	 	         EidosInterpreter::FastEvaluateNode(EidosASTNode const*)\
+6.27 s   16.2%	0 s	 	          EidosInterpreter::Evaluate_Assign(EidosASTNode const*)\
+3.96 s   10.2%	0 s	 	           EidosInterpreter::_AssignRValueToLValue(Eidos_intrusive_ptr<EidosValue>, EidosASTNode const*)\
+2.95 s    7.6%	0 s	 	            EidosInterpreter::FastEvaluateNode(EidosASTNode const*)\
+706.00 ms    1.8%	706.00 ms	 	            Individual::SetProperty_Accelerated_fitnessScaling(EidosObjectElement**, unsigned long, EidosValue const&, unsigned long)\
+252.00 ms    0.6%	0 s	 	            EidosSymbolTable::SetValueForSymbol(unsigned int, Eidos_intrusive_ptr<EidosValue>)\
+2.31 s    5.9%	0 s	 	           EidosInterpreter::FastEvaluateNode(EidosASTNode const*)\
+2.31 s    5.9%	1.00 ms	 	            EidosInterpreter::Evaluate_MemberRef(EidosASTNode const*)\
+2.31 s    5.9%	0 s	 	             EidosValue_Object_singleton::GetPropertyOfElements(unsigned int) const\
+2.29 s    5.9%	166.00 ms	 	              Subpopulation::GetProperty(unsigned int)\
+2.12 s    5.4%	143.00 ms	 	               EidosValue_Object_vector::push_object_element(EidosObjectElement*)\
+1.97 s    5.1%	1.75 s	 	                EidosValue_Object::DeclareClassFromElement(EidosObjectElement const*, bool)\
+225.00 ms    0.5%	225.00 ms	 	                 Individual::Class() const\
+118.00 ms    0.3%	0 s	 	      EidosSymbolTable::~EidosSymbolTable()\
+4.43 s   11.4%	2.49 s	 	     Subpopulation::ViabilitySelection()\
+1.23 s    3.1%	87.00 ms	 	      Subpopulation::FreeSubpopGenome(Genome*)\
+545.00 ms    1.4%	115.00 ms	 	       Genome::clear_to_nullptr()\
+491.00 ms    1.2%	491.00 ms	 	       Genome::IsNull() const\
+106.00 ms    0.2%	90.00 ms	 	       void std::__1::vector<Genome*, std::__1::allocator<Genome*> >::emplace_back<Genome*&>(Genome*&)\
+298.00 ms    0.7%	104.00 ms	 	      Individual::~Individual()\
+201.00 ms    0.5%	0 s	 	      Eidos_intrusive_ptr<EidosValue>::reset()\
+201.00 ms    0.5%	201.00 ms	 	      SLiMEidosDictionary::~SLiMEidosDictionary()\
+3.15 s    8.1%	1.19 s	 	     Population::RecalculateFitness(int)\
+1.47 s    3.7%	226.00 ms	 	     Subpopulation::MergeReproductionOffspring()\
+1.43 s    3.6%	0 s	 	     Population::MaintainRegistry()\
+1.28 s    3.2%	978.00 ms	 	     Subpopulation::IncrementIndividualAges()\
+146.00 ms    0.3%	0 s	 	     bool std::__1::operator!=<Individual**>(std::__1::__wrap_iter<Individual**> const&, std::__1::__wrap_iter<Individual**> const&)\
+}

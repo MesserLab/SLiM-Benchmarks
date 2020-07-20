@@ -1,0 +1,20 @@
+/*
+	turnover_WF.slim
+	
+	Rapid turnover of a population with no mutation or recombination.  This exercises
+	the reproduction machinery, in terms of generation of new individuals, for WF.
+*/
+
+initialize() {
+	initializeMutationRate(0);
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, 0);
+	initializeRecombinationRate(0);
+}
+
+1 {
+	sim.addSubpop("p1", 100000);
+}
+
+1000 late() { }

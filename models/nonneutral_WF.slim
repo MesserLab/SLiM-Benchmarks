@@ -1,0 +1,19 @@
+/*
+	nonneutral_WF.slim
+	
+	A simple nonneutral WF model with lots of mutations.  This exercises UpdateFitness(),
+	UniqueMutationRuns(), and TallyMutationReferences_FAST() in addition to
+	DoCrossOverMutation().
+	
+*/
+
+initialize() {
+	initializeMutationRate(1e-6);
+	initializeMutationType("m1", 0.5, "f", -0.001);
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, 999999);
+	initializeRecombinationRate(1e-7);
+}
+1 { sim.addSubpop("p1", 100); }
+100 { p1.setSubpopulationSize(1000000); }
+110 late() {  }

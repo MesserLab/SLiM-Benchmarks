@@ -1,0 +1,36 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww43200\viewh19880\viewkind0
+\pard\tx3281\tx5263\tx5482\tx6480\tx7200\tx7920\tx8640\li9350\fi-9351\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 45.87 s  100.0%	0 s	 	slim (95403)\
+45.87 s  100.0%	0 s	 	 Main Thread  0x31d85a\
+45.87 s  100.0%	0 s	 	  start\
+45.87 s  100.0%	0 s	 	   main\
+45.87 s  100.0%	1.00 ms	 	    SLiMSim::_RunOneGenerationWF()\
+44.49 s   96.9%	1.88 s	 	     Population::EvolveSubpopulation(Subpopulation&, bool, bool, bool, bool)\
+39.55 s   86.2%	12.30 s	 	      Population::DoCrossoverMutation(Subpopulation*, Genome&, int, IndividualSex, IndividualSex, std::__1::vector<SLiMEidosBlock*, std::__1::allocator<SLiMEidosBlock*> >*, std::__1::vector<SLiMEidosBlock*, std::__1::allocator<SLiMEidosBlock*> >*)\
+14.93 s   32.5%	6.24 s	 	       SLiMSim::RecordNewGenome(std::__1::vector<long long, std::__1::allocator<long long> >*, Genome*, Genome const*, Genome const*)\
+7.97 s   17.3%	5.60 s	 	        tsk_edge_table_add_row\
+2.37 s    5.1%	921.00 ms	 	         tsk_edge_table_expand_columns\
+1.45 s    3.1%	15.00 ms	 	          expand_column\
+1.44 s    3.1%	22.00 ms	 	           realloc\
+724.00 ms    1.5%	91.00 ms	 	        tsk_node_table_add_row\
+631.00 ms    1.3%	628.00 ms	 	         tsk_node_table_add_row_internal\
+10.73 s   23.3%	749.00 ms	 	       Chromosome::DrawCrossoverBreakpoints(IndividualSex, int, std::__1::vector<long long, std::__1::allocator<long long> >&) const\
+3.63 s    7.9%	2.50 s	 	        Eidos_rng_uniform_int_MT64(unsigned long long)\
+3.39 s    7.3%	0 s	 	        void std::__1::sort<long long>(std::__1::__wrap_iter<long long*>, std::__1::__wrap_iter<long long*>)\
+2.96 s    6.4%	1.85 s	 	        gsl_ran_discrete\
+828.00 ms    1.8%	828.00 ms	 	       MutationRun::end_pointer_const() const\
+591.00 ms    1.2%	54.00 ms	 	       Chromosome::DrawMutationAndBreakpointCounts(IndividualSex, int*, int*) const\
+165.00 ms    0.3%	165.00 ms	 	       MutationRun::begin_pointer_const() const\
+3.05 s    6.6%	3.05 s	 	      Individual::TrackPedigreeWithParents(Individual&, Individual&)\
+755.00 ms    1.6%	8.00 ms	 	     Population::ClearParentalGenomes()\
+747.00 ms    1.6%	175.00 ms	 	      Genome::clear_to_nullptr()\
+623.00 ms    1.3%	0 s	 	     Population::MaintainRegistry()\
+623.00 ms    1.3%	0 s	 	      Population::TallyMutationReferences(std::__1::vector<Subpopulation*, std::__1::allocator<Subpopulation*> >*, bool)\
+623.00 ms    1.3%	18.00 ms	 	       Population::TallyMutationReferences_FAST()\
+605.00 ms    1.3%	603.00 ms	 	        Genome::TallyGenomeMutationReferences(long long)\
+}

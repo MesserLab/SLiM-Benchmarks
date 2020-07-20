@@ -1,0 +1,21 @@
+/*
+	treeseq_edges.slim
+	
+	A simulation with tree-sequence recording with lots of recombination but no mutation,
+	without simplification.  This exercises edge recording, primarily.
+*/
+
+initialize() {
+	initializeTreeSeq(simplificationInterval=10000);		// never
+	initializeMutationRate(0);
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, 999999);
+	initializeRecombinationRate(1e-5);
+}
+
+1 {
+	sim.addSubpop("p1", 100000);
+}
+
+250 late() { }

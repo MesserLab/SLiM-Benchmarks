@@ -1,0 +1,20 @@
+/*
+	T_set_fitnessScaling_2.slim
+	
+	This exercises setting Individual property fitnessScaling to a vector
+*/
+
+initialize() {
+	initializeMutationRate(1e-7);
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, 99999);
+	initializeRecombinationRate(1e-8);
+}
+1 {
+	sim.addSubpop("p1", 1000000);
+	inds = p1.individuals;
+	v = asFloat(seqAlong(inds));
+	
+	for (i in 1:10000) inds.fitnessScaling = v;
+}
