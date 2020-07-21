@@ -38,4 +38,22 @@ export SLIM_BENCHTHREADS
 #bash ./runall.sh 5
 
 # run specified models
-#bash ./runmulti.sh neutral_WF 5#bash ./runmulti.sh nonneutral_WF 5bash ./runmulti.sh T_CalculateAllDistances1D 5bash ./runmulti.sh T_CalculateAllDistances2D 5bash ./runmulti.sh T_CalculateAllDistances3D 5bash ./runmulti.sh T_CalculateAllStrengths1D 5bash ./runmulti.sh T_CalculateAllStrengths2D 5bash ./runmulti.sh T_CalculateAllStrengths3D 5bash ./runmulti.sh T_set_fitnessScaling_1 5bash ./runmulti.sh T_set_fitnessScaling_2 5bash ./runmulti.sh T_sum_float 5bash ./runmulti.sh T_sum_integer 5bash ./runmulti.sh T_sum_logical 5bash ./runmulti.sh T_sumOfMutationsOfType 5#bash ./runmulti.sh treeseq_edges 5#bash ./runmulti.sh treeseq_simplify 5#bash ./runmulti.sh turnover_nonWF 5#bash ./runmulti.sh turnover_WF 5
+#bash ./runmulti.sh neutral_WF 5
+#bash ./runmulti.sh nonneutral_WF 5
+bash ./runmulti.sh T_CalculateAllDistances1D 5
+bash ./runmulti.sh T_CalculateAllDistances2D 5
+bash ./runmulti.sh T_CalculateAllDistances3D 5
+bash ./runmulti.sh T_CalculateAllStrengths1D 5
+bash ./runmulti.sh T_CalculateAllStrengths2D 5
+bash ./runmulti.sh T_CalculateAllStrengths3D 5
+bash ./runmulti.sh T_set_fitnessScaling_1 5
+bash ./runmulti.sh T_set_fitnessScaling_2 5
+bash ./runmulti.sh T_sum_float 5
+bash ./runmulti.sh T_sum_integer 5
+bash ./runmulti.sh T_sum_logical 5
+bash ./runmulti.sh T_sumOfMutationsOfType 5
+#bash ./runmulti.sh treeseq_edges 5
+#bash ./runmulti.sh treeseq_simplify 5
+#bash ./runmulti.sh turnover_nonWF 5
+#bash ./runmulti.sh turnover_WF 5
+
