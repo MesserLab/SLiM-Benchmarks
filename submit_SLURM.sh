@@ -4,11 +4,13 @@
 # SLURM for scheduling.  We limit ourselves to machines with these specs, for
 # consistency/reproducibility:
 #
-#	4x Intel Xeon E5 4620 2.20GHz (32 regular cores, 64 hyperthreaded cores)
+#	4x Intel Xeon E5 4620 2.20GHz (32 physical cores, 64 hyperthreaded cores)
 #	256GB RAM minimum
 #
 # The script is set up to monopolize the machine it gets, for more accurate
 # benchmarking results; this means many cores will be underutilized.  That's life.
+# Note that on this cluster "slots" are virtual (hyperthreaded) cores, so this
+# script requests 64 "tasks" giving us 32 physical cores.
 #
 # Submit this job with: sbatch submit_SLURM.sh (from the SLiM-Benchmarks folder).
 #
@@ -21,7 +23,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --exclude=cbsubscb08,cbsubscb09,cbsubscb10,cbsubscb11,cbsubscb12,cbsubscb13,cbsubscb14,cbsubscb15,cbsubscbgpu01
-#SBATCH --ntasks=32
+#SBATCH --ntasks=64
 #SBATCH --mem=256000
 #SBATCH --time=1-0:00:00
 #SBATCH --partition=regular
