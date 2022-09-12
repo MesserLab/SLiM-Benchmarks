@@ -16,8 +16,8 @@ initialize() {
 	initializeGenomicElement(g1, 22001, 9999999);
 	initializeRecombinationRate(1e-8);
 }
-fitness(m2) { return 1.0; }
-1 { sim.addSubpop("p1", 100); }
+mutationEffect(m2) { return 1.0; }
+1 early() { sim.addSubpop("p1", 100); }
 199 late() {
 	sim.chromosome.setMutationRate(0.0);
 	sim.chromosome.setRecombinationRate(0.0);

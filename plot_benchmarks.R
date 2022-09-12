@@ -4,7 +4,7 @@
 #	Benjamin C. Haller, 15 July 2020
 #
 #
-
+library(randomcoloR)
 sem <- function(x) sd(x)/sqrt(length(x))
 
 
@@ -37,7 +37,8 @@ timing_folders <- c("times_single", parallel_folders)
 # plot pre-configuration
 x_range <- range(parallel_threads)
 speedup_range <- c(0, 10)
-colors <- rainbow(length(model_files), end=0.80)
+colors <- #rainbow(length(model_files), end=0.80)
+colors <- distinctColorPalette(length(model_files), runTsne=T)
 ltys <- rep(c(1,3,5), length.out=length(model_files))
 
 # make the plot from the data in the filesystem
@@ -47,7 +48,7 @@ plot(x=x_range, y=speedup_range, type="n", xlab="Thread count", ylab="Speed rela
 
 axis(1, at=timing_threads, labels=timing_threads)
 abline(a=0, b=1, col="lightgray", lwd=2)
-for (h in seq(1, 11, 2))
+for (h in seq(1, 11, 1))
 	abline(h=h, col="lightgray")
 
 for (drawrep in 1:3)
@@ -97,7 +98,7 @@ for (drawrep in 1:3)
 		if (drawrep == 1) {
 			#lines(x=model_x, y=parallel_speedups, col="black", lwd=3)
 		} else if (drawrep == 2) {
-			lines(x=model_x, y=parallel_speedups, col=model_color, lwd=1.5, lty=model_lty)
+			lines(x=model_x, y=parallel_speedups, col=model_color, lwd=3, lty=model_lty)
 		} else if (drawrep == 3) {
 			suppressWarnings(arrows(x0=model_x, y0=min_speedups, x1=model_x, y1=max_speedups, code=3, angle=90, length=0.02))
 			points(x=model_x, y=parallel_speedups, pch=21, cex=0.9, bg=model_color, col="black")
@@ -105,7 +106,7 @@ for (drawrep in 1:3)
 	}
 }
 
-legend("topleft", inset=c(0.005, 0.01), legend=model_names, col=colors, lwd=1.5, lty=c(1,3,5), cex=0.85, bg="white")
+legend("topleft", inset=c(0.005, 0.01), legend=model_names, col=colors, lwd=3, lty=c(1,3,5), cex=0.85, bg="white")
 box()
 
 

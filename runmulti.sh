@@ -38,10 +38,10 @@ fi
 
 
 # Determine the list of threadcounts to run for; we use the variable SLIM_BENCHTHREADS,
-# and default to threadcounts of 1 2 3 6 9 12 if that variable is not defined
+# and default to threadcounts of 1 2 4 6 8 if that variable is not defined
 if [ -z ${SLIM_BENCHTHREADS+x} ]; then
     #echo "SLIM_BENCHTHREADS is unset"
-    SLIM_BENCHTHREADS="1 2 3 6 9 12"
+    SLIM_BENCHTHREADS="1 2 4 6 8"
 fi
 
 

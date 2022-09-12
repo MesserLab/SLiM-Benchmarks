@@ -1,8 +1,8 @@
-SLiM-Bottlenecks
+SLiM-Benchmarks
 ================
 
 Benjamin C. Haller
-13 July 2020
+12 September 2022
 
 
 The purpose of this repository is to provide models that are useful for benchmarking SLiM, particularly with an eye toward hotspots in the code that may be amenable to parallelizing.  These models are not intended to be recipes or useful real-world models; they are designed to exercise particular parts of the code.  They are also not intended to be tests, and the results from them are not checked or validated; testing of SLiM is done in other ways.
@@ -27,7 +27,7 @@ runone.sh, runmulti.sh, runall.sh: scripts that execute benchmark(s); see docume
 
 submit_SLURM.sh: a job submission script tailored for Cornell's BSCB cluster; see its header for details.
 
-The "models" directory contains the models for the benchmarks.  Each model has a comment at the top describing what part of the code it is intended to exercise.  There are two types of models here.  One type has a filename that starts with "T_" (for "targeted"); these are not really even SLiM models in any real sense, but are instead scripts designed to exercise one specific API in Eidos or SLiM.  The other type, without a "T_" prefix, are proper SLiM models that actually simulate something biological, although they are generally still designed to exercise a specific corner of SLiM's core code.  The runner_test.slim file is a trivial model that takes virtually no time, used for testing the runner scripts; in GitHub it is named "runner_test.sli" so that it is not found and run by runall.sh, so if you want to use it you should rename it to have the ".slim" extension.
+The "models" directory contains the models for the benchmarks.  Each model has a comment at the top describing what part of the code it is intended to exercise.  There are two types of models here.  One type has a filename that starts with "T_" (for "targeted"); these are not really even SLiM models in any real sense, but are instead scripts designed to exercise one specific API in Eidos or SLiM.  The other type, without a "T_" prefix, are proper SLiM models that actually simulate something biological, although they are generally still designed to exercise a specific corner of SLiM's core code.  The runner_test.slim file is a trivial model that takes virtually no time, used for testing the runner scripts; in GitHub it is in a folder named "models (disabled)", so if you want to use it you should move it into the "models" folder.
 
 The "profiles" directory contains profiles from Instruments (part of Xcode) of the models running single-threaded, showing which part of the SLiM code base they focus on.  These profiles are filtered with a 100-sample minimum, to get rid of extraneous noise and focus on the bottlenecks.  These are just references for convenience, and may not be present for all models or kept up to date with SLiM code changes.
 
@@ -35,7 +35,7 @@ The "times_single" directory contains runtime data for each replicate of each mo
 
 The "times_parallel_X" directories contain runtime data for the corresponding parallel runs of each model with X threads, produced by the runner scripts.  The CSV file format is the same as for times_single.
 
-The timing data provided here, for the time being at least, was generated on a 2018 Mac mini with a 3.2 GHz 6-core Intel Core i7 with 64 GB of RAM.  This processor supports hyperthreading, so we have benchmarked parallel execution with up to 12 threads.  The timing properties on a different platform, such as a computing cluster with a large number of cores, may be very different, so you should not rely on the timing data provided here to inform your choices about how to run SLiM for the best performance.  If you want to generate timing data for a given platform, clear out all the times_X folders and run the benchmarks with the runner scripts yourself.
+The timing data provided here, for the time being at least, was generated on a 2020 Mac mini with 8-core Apple M1 chip (4 performance cores, 4 efficiency cores), with 16 GB of RAM.  The mix of core types is obviously not ideal for this.  The timing properties on a different platform, such as a computing cluster with a large number of cores, may be very different, so you should not rely on the timing data provided here to inform your choices about how to run SLiM for the best performance.  If you want to generate timing data for a given platform, clear out all the times_X folders and run the benchmarks with the runner scripts yourself.
 
 
 Running timing tests
@@ -52,7 +52,7 @@ To run a single model across a standard set of thread counts, use the runmulti.s
 
     bash ./runmulti.sh <model-name> <replicates>
 
-This passes the model name and replicate count through to runone.sh, sublaunching it multiple times to generate replicates for the single-thread case as well as for specific thread counts for the multi-threaded case.  The thread counts used for the multi-threaded case are governed by the shell variable SLIM_BENCHTHREADS.  By default this variable is set with SLIM_BENCHTHREADS="1 2 3 6 9 12"; this choice for the number of threads is tailored to our target testing machine.  You can change the thread counts used by simply setting and exporting the variable, like so:
+This passes the model name and replicate count through to runone.sh, sublaunching it multiple times to generate replicates for the single-thread case as well as for specific thread counts for the multi-threaded case.  The thread counts used for the multi-threaded case are governed by the shell variable SLIM_BENCHTHREADS.  By default this variable is set with SLIM_BENCHTHREADS="1 2 4 6 8" for now; this choice for the number of threads is tailored to our target testing machine and will change.  You can change the thread counts used by simply setting and exporting the variable, like so:
 
     SLIM_BENCHTHREADS="1 2 5 10 20 40"
     export SLIM_BENCHTHREADS
@@ -67,5 +67,5 @@ To execute bulk runs, use the runall.sh script:
 The only parameter here is the number of replicates desired.  This script will loop over all of the models found in the models folder (*.slim), and will run each of them across replicates and thread counts by calling runmulti.sh and passing the requested replicate count through.
 
 
-Note that these scripts never run more than one invocation of SLiM at a time, to keep the machine free from contention for resources.  These runtimes are therefore, roughly, the *minimum* runtime expected, and when running multiple invocations simultaneously on a single machine, one would expect somewhat lower performance due to resource contention.  How large that effect is will depend upon the platform.
+Note that these scripts never run more than one invocation of SLiM at a time, to keep the machine free from contention for resources (to the extent possible, other apps/processes should be quit, for the same reason).  These runtimes are therefore, roughly, the *minimum* runtime expected, and when running multiple invocations simultaneously on a single machine, one would expect somewhat lower performance due to resource contention.  How large that effect is will depend upon the platform.
 
