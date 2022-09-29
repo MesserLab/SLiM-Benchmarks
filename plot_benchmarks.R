@@ -36,20 +36,21 @@ timing_folders <- c("times_single", parallel_folders)
 
 # plot pre-configuration
 x_range <- range(parallel_threads)
-speedup_range <- c(0, 10)
-colors <- #rainbow(length(model_files), end=0.80)
-colors <- distinctColorPalette(length(model_files), runTsne=T)
-ltys <- rep(c(1,3,5), length.out=length(model_files))
+speedup_range <- c(1, 8)
+colors <- rainbow(length(model_files), end=0.80)
+#if (length(model_files) == 1) colors <- "#FF0000" else colors <- distinctColorPalette(length(model_files), runTsne=T)
+ltys <- rep(1, length.out=length(model_files))
+#ltys <- rep(c(1,3,5), length.out=length(model_files))
 
 # make the plot from the data in the filesystem
-quartz(width=7, height=6)
+quartz(width=7, height=7)
 par(mar=c(3.1, 3.1, 2, 2), tcl=-0.3, mgp=c(1.9, 0.4, 0), family="serif")
 plot(x=x_range, y=speedup_range, type="n", xlab="Thread count", ylab="Speed relative to single-threaded", xaxt="n")
 
 axis(1, at=timing_threads, labels=timing_threads)
-abline(a=0, b=1, col="lightgray", lwd=2)
 for (h in seq(1, 11, 1))
 	abline(h=h, col="lightgray")
+abline(a=0, b=1, col="black", lwd=2)
 
 for (drawrep in 1:3)
 {
@@ -106,7 +107,7 @@ for (drawrep in 1:3)
 	}
 }
 
-legend("topleft", inset=c(0.005, 0.01), legend=model_names, col=colors, lwd=3, lty=c(1,3,5), cex=0.85, bg="white")
+legend("topleft", inset=c(0.01, 0.01), legend=model_names, col=colors, lwd=3, lty=ltys, cex=0.85, bg="white")
 box()
 
 
