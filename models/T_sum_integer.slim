@@ -7,5 +7,13 @@
 initialize() { }
 1 early() {
 	y = 1:1000000;
-	for (i in 1:100000) x = sum(y);
+	x = sapply(1:10000, "sum(y);");
+	
+	// summarize results
+	first_x = x[0];
+	all_equal = all(x == first_x);
+	if (all_equal)
+		catn("### ALL " + first_x + " (" + length(x) + ") ###");
+	else
+		catn("### *** INCONSISTENT *** " + mean(x) + " (" + length(x) + ") *** ###");
 }

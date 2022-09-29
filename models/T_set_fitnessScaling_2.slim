@@ -10,5 +10,8 @@ initialize() { }
 	inds = p1.individuals;
 	v = asFloat(seqAlong(inds));
 	
-	for (i in 1:10000) inds.fitnessScaling = v;
+	for (i in 1:1000) inds.fitnessScaling = v;
+	
+	// summarize results
+	catn("### NO SUMMARY ###");
 }
