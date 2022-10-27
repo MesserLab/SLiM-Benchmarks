@@ -1,5 +1,7 @@
 *.history
 slim_multi
 slim_single
+slim_original
 times_parallel*
 times_single*
+times_original*

@@ -36,10 +36,12 @@ if ! [[ "${replicates}" =~ ${intregex} ]] ; then
     echo "ERROR: The replicate count must be a positive integer."
     usage
 fi
-if [ -n "${threadcount}" ] ; then
-    if ! [[ "${threadcount}" =~ ${intregex} ]] ; then
-        echo "ERROR: The thread count must be a positive integer."
-        usage
+if [ "${threadcount}" != "0" ] ; then
+    if [ -n "${threadcount}" ] ; then
+        if ! [[ "${threadcount}" =~ ${intregex} ]] ; then
+            echo "ERROR: The thread count must be a positive integer, or zero (for slim_original)."
+            usage
+        fi
     fi
 fi
 
@@ -51,6 +53,10 @@ if ! [ -f "${modelpath}" ] ; then
 	exit 1
 fi
 
+if ! [ -x "./slim_original" ] ; then
+	echo "No executable found at ./slim_original"
+	exit 1
+fi
 if ! [ -x "./slim_single" ] ; then
 	echo "No executable found at ./slim_single"
 	exit 1
@@ -63,7 +69,10 @@ fi
 
 # Inform the user of what we will do
 
-if [ -z "${threadcount}" ] ; then
+if [ "${threadcount}" == "0" ] ; then
+	echo -n "Running ${replicates} replicates of ${modelfile} with slim_original"
+	outdir="./times_original/"
+elif [ -z "${threadcount}" ] ; then
 	echo -n "Running ${replicates} replicates of ${modelfile} with slim_single"
 	outdir="./times_single/"
 else
@@ -92,7 +101,9 @@ echo "cpu_secs, wall_secs, mem_MB, summary" > ${outfile}
 for ((i=1;i<=replicates;i++)) ; do
     echo -n "."
     
-    if [ -z "${threadcount}" ] ; then
+    if [ "${threadcount}" == "0" ] ; then
+        output=$(./slim_original -time -mem -s ${i} -l 0 ${modelpath} 2>&1)
+    elif [ -z "${threadcount}" ] ; then
         output=$(./slim_single -time -mem -s ${i} -l 0 ${modelpath} 2>&1)
     else
         output=$(./slim_multi -time -mem -s ${i} -l 0 -maxthreads ${threadcount} ${modelpath} 2>&1)

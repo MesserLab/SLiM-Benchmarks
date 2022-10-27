@@ -45,8 +45,10 @@ if [ -z ${SLIM_BENCHTHREADS+x} ]; then
 fi
 
 
-# Sublaunch runone.sh to do each set of replicates
+# Sublaunch runone.sh to do each set of replicates; thread count of 0 runs slim_original
 bash ./runone.sh ${modelname} ${replicates}
+
+bash ./runone.sh ${modelname} ${replicates} 0
 
 for threadcount in ${SLIM_BENCHTHREADS} ; do
     bash ./runone.sh ${modelname} ${replicates} ${threadcount}
