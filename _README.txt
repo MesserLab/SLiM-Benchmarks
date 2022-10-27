@@ -31,9 +31,17 @@ submit_SLURM.sh: a job submission script tailored for Cornell's BSCB cluster; se
 
 submit_BIOHPC.sh: a job submission script tailored for a single machine on Cornell's BioHPC cluster; see its header for details.
 
-submit_LOCAL.sh: a job submission script tailored for my macOS machine; see its header for details.
+submit_LOCAL.sh: a job submission script tailored for my local macOS machine; see its header for details.
 
-The "models" directory contains the models for the benchmarks.  Each model has a comment at the top describing what part of the code it is intended to exercise.  There are two types of models here.  One type has a filename that starts with "T_" (for "targeted"); these are not really even SLiM models in any real sense, but are instead scripts designed to exercise one specific API in Eidos or SLiM.  The other type, without a "T_" prefix, are proper SLiM models that actually simulate something biological, although they are generally still designed to exercise a specific corner of SLiM's core code.  The runner_test.slim file is a trivial model that takes virtually no time, used for testing the runner scripts; in GitHub it is in a folder named "models (disabled)", so if you want to use it you should move it into the "models" folder.
+The "models" directory contains the models for the benchmarks.  Each model has a comment at the top describing what part of the code it is intended to exercise.  Model filenames start with a prefix that indicates the type of the test.  The prefixes in use right now are:
+
+E_ : an "Eidos" test, exercising one specific Eidos API as cleanly as possible
+M_ : a "model" test; these are relatively realistic SLiM models that may exercise multiple bottlenecks
+S_ : a "spatial" test; these spatial models usually exercise a specific InteractionType API
+T_ : a "trees" test; these try to exercise specific bottlenecks inside tree-sequence recording
+Z_ : these are internal/administrative tests
+
+The Z_runner_test.slim file is a trivial model that takes virtually no time, used for testing the runner scripts; in GitHub it is in a folder named "models (disabled)", so if you want to use it you should move it into the "models" folder.
 
 The "profiles" directory contains profiles from Instruments (part of Xcode) of the models running single-threaded, showing which part of the SLiM code base they focus on.  These profiles are filtered with a 100-sample minimum, to get rid of extraneous noise and focus on the bottlenecks.  These are just references for convenience, and may not be present for all models or kept up to date with SLiM code changes.
 
@@ -73,6 +81,8 @@ To execute bulk runs, use the runall.sh script:
     bash ./runall.sh <replicates>
 
 The only parameter here is the number of replicates desired.  This script will loop over all of the models found in the models folder (*.slim), and will run each of them across replicates and thread counts by calling runmulti.sh and passing the requested replicate count through.
+
+Alternatively, to execute bulk runs, use one of the submission scripts: submit_BIOHPC.sh, submit_LOCAL.sh, or submit_SLURM.sh.  These will run all of the tests that are not commented out with a "#" in the script.  This is an easy way to exercise precise control over which tests are run.
 
 
 Note that these scripts never run more than one invocation of SLiM at a time, to keep the machine free from contention for resources (to the extent possible, other apps/processes should be quit, for the same reason).  These runtimes are therefore, roughly, the *minimum* runtime expected, and when running multiple invocations simultaneously on a single machine, one would expect somewhat lower performance due to resource contention.  How large that effect is will depend upon the platform and the specific model being run.

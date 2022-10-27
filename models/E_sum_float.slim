@@ -1,13 +1,13 @@
 /*
-	T_sum_integer.slim
+	E_sum_float.slim
 	
-	This exercises Eidos function sum(integer x)
+	This exercises Eidos function sum(float x)
 */
 
 initialize() { }
 1 early() {
-	y = 1:10000000;
-	x = sapply(1:1000, "sum(y);");
+	y = 1.0:100000000;
+	x = sapply(1:100, "sum(y);");
 	
 	// summarize results
 	first_x = x[0];
@@ -17,3 +17,4 @@ initialize() { }
 	else
 		catn("### *** INCONSISTENT *** " + mean(x) + " (" + length(x) + ") *** ###");
 }
+

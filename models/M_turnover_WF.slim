@@ -1,7 +1,8 @@
 /*
-	runner_test.slim
+	M_turnover_WF.slim
 	
-	This model executes quickly, for testing that the runner script is working
+	Rapid turnover of a population with no mutation or recombination.  This exercises
+	the reproduction machinery, in terms of generation of new individuals, for WF.
 */
 
 initialize() {
@@ -13,7 +14,7 @@ initialize() {
 }
 
 1 early() {
-	sim.addSubpop("p1", 100);
+	sim.addSubpop("p1", 100000);
 }
 
 1000 late() { }

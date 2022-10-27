@@ -1,13 +1,13 @@
 /*
-	T_sum_logical.slim
+	E_sum_integer.slim
 	
-	This exercises Eidos function sum(logical x)
+	This exercises Eidos function sum(integer x)
 */
 
 initialize() { }
 1 early() {
-	y = runif(10000000) < 0.5;
-	x = sapply(1:5000, "sum(y);");
+	y = 1:10000000;
+	x = sapply(1:1000, "sum(y);");
 	
 	// summarize results
 	first_x = x[0];

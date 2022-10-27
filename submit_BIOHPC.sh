@@ -21,28 +21,31 @@
 SLIM_BENCHTHREADS="1 2 5 10 20 40 60 80"
 export SLIM_BENCHTHREADS
 
+REPS=5
+
 # run all models
-#bash ./runall.sh 5
+#bash ./runall.sh ${REPS}
 
 # run specified models
-#bash ./runmulti.sh neutral_WF 5
-#bash ./runmulti.sh nonneutral_WF 5
-#bash ./runmulti.sh T_CalculateAllDistances1D 5
-#bash ./runmulti.sh T_CalculateAllDistances2D 5
-#bash ./runmulti.sh T_CalculateAllDistances3D 5
-#bash ./runmulti.sh T_CalculateAllStrengths1D 5
-#bash ./runmulti.sh T_CalculateAllStrengths2D 5
-#bash ./runmulti.sh T_CalculateAllStrengths3D 5
-bash ./runmulti.sh T_set_fitnessScaling_1 5
-bash ./runmulti.sh T_set_fitnessScaling_2 5
-bash ./runmulti.sh T_sum_float 5
-bash ./runmulti.sh T_sum_integer 5
-bash ./runmulti.sh T_sum_logical 5
-bash ./runmulti.sh T_sumOfMutationsOfType 5
-#bash ./runmulti.sh treeseq_edges 5
-#bash ./runmulti.sh treeseq_simplify 5
-#bash ./runmulti.sh turnover_nonWF 5
-#bash ./runmulti.sh turnover_WF 5
+bash ./runmulti.sh E_set_fitnessScaling_1 ${REPS}
+bash ./runmulti.sh E_set_fitnessScaling_2 ${REPS}
+bash ./runmulti.sh E_sum_float ${REPS}
+bash ./runmulti.sh E_sum_integer ${REPS}
+bash ./runmulti.sh E_sum_logical ${REPS}
+bash ./runmulti.sh E_sumOfMutationsOfType ${REPS}
+#bash ./runmulti.sh M_neutral_WF ${REPS}
+#bash ./runmulti.sh M_nonneutral_WF ${REPS}
+#bash ./runmulti.sh M_turnover_nonWF ${REPS}
+#bash ./runmulti.sh M_turnover_WF ${REPS}
+bash ./runmulti.sh S_interactingNeighborCount_1D ${REPS}
+bash ./runmulti.sh S_interactingNeighborCount_2D ${REPS}
+bash ./runmulti.sh S_interactingNeighborCount_3D ${REPS}
+bash ./runmulti.sh S_totalOfNeighborStrengths_1D ${REPS}
+bash ./runmulti.sh S_totalOfNeighborStrengths_2D ${REPS}
+bash ./runmulti.sh S_totalOfNeighborStrengths_3D ${REPS}
+#bash ./runmulti.sh T_treeseq_edges ${REPS}
+#bash ./runmulti.sh T_treeseq_simplify ${REPS}
+#bash ./runmulti.sh Z_runner_test ${REPS}
 
 # give the reserved node back to the cluster; replace the reservation # here
 /programs/bin/labutils/endres.pl 119124

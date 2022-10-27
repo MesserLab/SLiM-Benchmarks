@@ -1,0 +1,30 @@
+/*
+	S_totalOfNeighborStrengths_2D.slim
+	
+	This exercises building strength sparse vectors.  This is the 3D case.
+	The maxDistance is set to produce about 27 million interactions, and
+	then the number of replicates is scaled to take about ten seconds.
+*/
+
+initialize() {
+	initializeSLiMOptions(dimensionality="xyz");
+	initializeInteractionType(1, "xyz", reciprocal=T, maxDistance=0.50);
+	i1.setInteractionFunction("n", 1.0, 0.50);
+}
+1 late() {
+	sim.addSubpop("p1", 10000);
+	
+	inds = p1.individuals;
+	inds.setSpatialPosition(p1.pointUniform(p1.individualCount));
+	
+	i1.evaluate(p1);
+	x = sapply(1:25, "sum(i1.totalOfNeighborStrengths(inds));");
+	
+	// summarize results
+	first_x = x[0];
+	all_equal = all(x == first_x);
+	if (all_equal)
+		catn("### ALL " + first_x + " (" + length(x) + ") ###");
+	else
+		catn("### *** INCONSISTENT *** " + mean(x) + " (" + length(x) + ") *** ###");
+}
