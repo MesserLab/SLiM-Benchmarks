@@ -44,6 +44,7 @@ REPS=5
 # run specified models
 bash ./runmulti.sh E_set_fitnessScaling_1 ${REPS}
 bash ./runmulti.sh E_set_fitnessScaling_2 ${REPS}
+bash ./runmulti.sh E_sort_integer ${REPS}
 bash ./runmulti.sh E_sum_float ${REPS}
 bash ./runmulti.sh E_sum_integer ${REPS}
 bash ./runmulti.sh E_sum_logical ${REPS}

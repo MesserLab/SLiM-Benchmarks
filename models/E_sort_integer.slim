@@ -1,0 +1,25 @@
+/*
+	E_sort_integer.slim
+	
+	This exercises Eidos function sort(integer x)
+*/
+
+initialize() { }
+1 early() {
+	o = repEach(1:1000000, 2);				// known correct order
+	x = sample(o, 2000000, replace=F);	// scrambled
+	
+	incorrect = 0;
+	for (i in 1:100)
+	{
+		y = sort(x);
+		if (!identical(o, y))
+			incorrect = incorrect + 1;
+	}
+	
+	// summarize results
+	if (incorrect == 0)
+		catn("### ALL CORRECT ###");
+	else
+		catn("### *** " + incorrect + " INCORRECT *** ###");
+}
