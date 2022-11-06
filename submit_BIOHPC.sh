@@ -29,7 +29,7 @@ REPS=3
 # run specified models
 #bash ./runmulti.sh E_set_fitnessScaling_1 ${REPS}
 #bash ./runmulti.sh E_set_fitnessScaling_2 ${REPS}
-bash ./runmulti.sh E_sort_integer ${REPS}
+#bash ./runmulti.sh E_sort_integer ${REPS}
 #bash ./runmulti.sh E_sum_float ${REPS}
 #bash ./runmulti.sh E_sum_integer ${REPS}
 #bash ./runmulti.sh E_sum_logical ${REPS}
@@ -38,6 +38,8 @@ bash ./runmulti.sh E_sort_integer ${REPS}
 #bash ./runmulti.sh M_nonneutral_WF ${REPS}
 #bash ./runmulti.sh M_turnover_nonWF ${REPS}
 #bash ./runmulti.sh M_turnover_WF ${REPS}
+bash ./runmulti.sh R_rnorm_1sigma ${REPS}
+bash ./runmulti.sh R_rnorm_Nsigma ${REPS}
 #bash ./runmulti.sh S_interactingNeighborCount_1D ${REPS}
 #bash ./runmulti.sh S_interactingNeighborCount_2D ${REPS}
 #bash ./runmulti.sh S_interactingNeighborCount_3D ${REPS}

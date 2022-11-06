@@ -1,0 +1,11 @@
+/*
+	E_rnorm.slim
+	
+	This exercises rnorm() for the sigma singleton case
+*/
+
+initialize() { }
+1 early() {
+	for (i in 1:30)
+		x = rnorm(10000000, 10.0, 5.0);
+}

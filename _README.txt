@@ -37,6 +37,7 @@ The "models" directory contains the models for the benchmarks.  Each model has a
 
 E_ : an "Eidos" test, exercising one specific Eidos API as cleanly as possible
 M_ : a "model" test; these are relatively realistic SLiM models that may exercise multiple bottlenecks
+R_ : a test involving RNG-centered APIs like drawing and sampling
 S_ : a "spatial" test; these spatial models usually exercise a specific InteractionType API
 T_ : a "trees" test; these try to exercise specific bottlenecks inside tree-sequence recording
 Z_ : these are internal/administrative tests
