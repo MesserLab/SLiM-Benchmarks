@@ -1,0 +1,11 @@
+/*
+	R_runif_1.slim
+	
+	This exercises runif() for the singleton 0.0-1.0 case
+*/
+
+initialize() { }
+1 early() {
+	for (i in 1:500)
+		x = runif(10000000);
+}

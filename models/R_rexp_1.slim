@@ -1,0 +1,11 @@
+/*
+	R_rexp_1.slim
+	
+	This exercises rexp() for the mu singleton case
+*/
+
+initialize() { }
+1 early() {
+	for (i in 1:50)
+		x = rexp(10000000, 10.5);
+}

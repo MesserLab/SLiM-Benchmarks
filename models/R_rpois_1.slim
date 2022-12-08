@@ -1,0 +1,11 @@
+/*
+	R_rpois_1.slim
+	
+	This exercises rpois() for the lambda singleton case
+*/
+
+initialize() { }
+1 early() {
+	for (i in 1:10)
+		x = rpois(10000000, 10.5);
+}

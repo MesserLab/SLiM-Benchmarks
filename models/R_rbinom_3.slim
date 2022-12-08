@@ -1,0 +1,13 @@
+/*
+	R_rbinom_3.slim
+	
+	This exercises rbinom() for the no singleton case
+*/
+
+initialize() { }
+1 early() {
+	size = rdunif(10000000, 4, 6);
+	prob = runif(10000000, 0.1, 0.3);
+	for (i in 1:30)
+		x = rbinom(10000000, size, prob);
+}

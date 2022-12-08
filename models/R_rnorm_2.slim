@@ -1,12 +1,12 @@
 /*
-	E_rnorm.slim
+	R_rnorm_2.slim
 	
 	This exercises rnorm() for the sigma singleton case
 */
 
 initialize() { }
 1 early() {
-	sigma = runif(10000000, 1.0, 5.0);
+	mu = runif(10000000, 0.0, 100.0);
 	for (i in 1:30)
-		x = rnorm(10000000, 10.0, sigma);
+		x = rnorm(10000000, mu, 5.0);
 }

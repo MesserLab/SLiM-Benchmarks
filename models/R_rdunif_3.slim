@@ -1,0 +1,13 @@
+/*
+	R_rdunif_3.slim
+	
+	This exercises rdunif() for the no singleton case
+*/
+
+initialize() { }
+1 early() {
+	min = rdunif(10000000, 0, 10);
+	max = rdunif(10000000, 20, 50);
+	for (i in 1:60)
+		x = rdunif(10000000, min, max);
+}

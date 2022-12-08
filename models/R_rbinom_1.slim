@@ -1,0 +1,11 @@
+/*
+	R_rbinom_1.slim
+	
+	This exercises rbinom() for the singleton coin-flip case
+*/
+
+initialize() { }
+1 early() {
+	for (i in 1:500)
+		x = rbinom(10000000, 1, 0.5);
+}

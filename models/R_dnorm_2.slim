@@ -1,0 +1,14 @@
+/*
+	R_dnorm_2.slim
+	
+	This exercises dnorm() for the no singleton case
+*/
+
+initialize() { }
+1 early() {
+	x = runif(10000000);
+	sigma = runif(10000000, 1.0, 2.0);
+	mu = runif(10000000, 0.0, 1.0);
+	for (i in 1:70)
+		y = dnorm(x, mu, sigma);
+}

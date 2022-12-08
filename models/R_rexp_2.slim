@@ -1,0 +1,12 @@
+/*
+	R_rexp_2.slim
+	
+	This exercises rexp() for the mu non-singleton case
+*/
+
+initialize() { }
+1 early() {
+	mu = runif(10000000, 9.5, 10.5);
+	for (i in 1:50)
+		x = rexp(10000000, mu);
+}

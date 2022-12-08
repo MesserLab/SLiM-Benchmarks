@@ -1,0 +1,12 @@
+/*
+	R_rpois_2.slim
+	
+	This exercises rpois() for the lambda non-singleton case
+*/
+
+initialize() { }
+1 early() {
+	lambda = runif(10000000, 9.5, 10.5);
+	for (i in 1:10)
+		x = rpois(10000000, lambda);
+}

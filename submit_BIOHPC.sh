@@ -8,6 +8,7 @@
 #
 # The script is set up to monopolize the machine it gets, for more accurate
 # benchmarking results; this means many cores will be underutilized.  That's life.
+# It may or may not be desirable to include hyperthreaded results for 60/80 cores.
 #
 # Submit this job with: nohup bash ./submit_BIOHPC.sh >& hpclog.txt &
 #
@@ -18,7 +19,8 @@
 #
 # Benjamin C. Haller, 8 August 2020
 
-SLIM_BENCHTHREADS="1 2 5 10 20 40 60 80"
+#SLIM_BENCHTHREADS="1 2 5 10 20 40 60 80"
+SLIM_BENCHTHREADS="1 2 5 10 20 40"
 export SLIM_BENCHTHREADS
 
 REPS=3
@@ -34,20 +36,41 @@ REPS=3
 #bash ./runmulti.sh E_sum_integer ${REPS}
 #bash ./runmulti.sh E_sum_logical ${REPS}
 #bash ./runmulti.sh E_sumOfMutationsOfType ${REPS}
+
 #bash ./runmulti.sh M_neutral_WF ${REPS}
 #bash ./runmulti.sh M_nonneutral_WF ${REPS}
 #bash ./runmulti.sh M_turnover_nonWF ${REPS}
 #bash ./runmulti.sh M_turnover_WF ${REPS}
-bash ./runmulti.sh R_rnorm_1sigma ${REPS}
-bash ./runmulti.sh R_rnorm_Nsigma ${REPS}
+
+bash ./runmulti.sh R_dnorm_1 ${REPS}
+bash ./runmulti.sh R_dnorm_2 ${REPS}
+bash ./runmulti.sh R_rbinom_1 ${REPS}
+bash ./runmulti.sh R_rbinom_2 ${REPS}
+bash ./runmulti.sh R_rbinom_3 ${REPS}
+bash ./runmulti.sh R_rdunif_1 ${REPS}
+bash ./runmulti.sh R_rdunif_2 ${REPS}
+bash ./runmulti.sh R_rdunif_3 ${REPS}
+bash ./runmulti.sh R_rexp_1 ${REPS}
+bash ./runmulti.sh R_rexp_2 ${REPS}
+bash ./runmulti.sh R_rnorm_1 ${REPS}
+bash ./runmulti.sh R_rnorm_2 ${REPS}
+bash ./runmulti.sh R_rnorm_3 ${REPS}
+bash ./runmulti.sh R_rpois_1 ${REPS}
+bash ./runmulti.sh R_rpois_2 ${REPS}
+bash ./runmulti.sh R_runif_1 ${REPS}
+bash ./runmulti.sh R_runif_2 ${REPS}
+bash ./runmulti.sh R_runif_3 ${REPS}
+
 #bash ./runmulti.sh S_interactingNeighborCount_1D ${REPS}
 #bash ./runmulti.sh S_interactingNeighborCount_2D ${REPS}
 #bash ./runmulti.sh S_interactingNeighborCount_3D ${REPS}
 #bash ./runmulti.sh S_totalOfNeighborStrengths_1D ${REPS}
 #bash ./runmulti.sh S_totalOfNeighborStrengths_2D ${REPS}
 #bash ./runmulti.sh S_totalOfNeighborStrengths_3D ${REPS}
+
 #bash ./runmulti.sh T_treeseq_edges ${REPS}
 #bash ./runmulti.sh T_treeseq_simplify ${REPS}
+
 #bash ./runmulti.sh Z_runner_test ${REPS}
 
 # give the reserved node back to the cluster; replace the reservation # here
