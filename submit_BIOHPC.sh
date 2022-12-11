@@ -23,7 +23,7 @@
 SLIM_BENCHTHREADS="1 2 5 10 20 40"
 export SLIM_BENCHTHREADS
 
-REPS=3
+REPS=1
 
 # run all models
 #bash ./runall.sh ${REPS}
@@ -39,27 +39,28 @@ REPS=3
 
 #bash ./runmulti.sh M_neutral_WF ${REPS}
 #bash ./runmulti.sh M_nonneutral_WF ${REPS}
+bash ./runmulti.sh M_mut_tallies ${REPS}
 #bash ./runmulti.sh M_turnover_nonWF ${REPS}
 #bash ./runmulti.sh M_turnover_WF ${REPS}
 
-bash ./runmulti.sh R_dnorm_1 ${REPS}
-bash ./runmulti.sh R_dnorm_2 ${REPS}
-bash ./runmulti.sh R_rbinom_1 ${REPS}
-bash ./runmulti.sh R_rbinom_2 ${REPS}
-bash ./runmulti.sh R_rbinom_3 ${REPS}
-bash ./runmulti.sh R_rdunif_1 ${REPS}
-bash ./runmulti.sh R_rdunif_2 ${REPS}
-bash ./runmulti.sh R_rdunif_3 ${REPS}
-bash ./runmulti.sh R_rexp_1 ${REPS}
-bash ./runmulti.sh R_rexp_2 ${REPS}
-bash ./runmulti.sh R_rnorm_1 ${REPS}
-bash ./runmulti.sh R_rnorm_2 ${REPS}
-bash ./runmulti.sh R_rnorm_3 ${REPS}
-bash ./runmulti.sh R_rpois_1 ${REPS}
-bash ./runmulti.sh R_rpois_2 ${REPS}
-bash ./runmulti.sh R_runif_1 ${REPS}
-bash ./runmulti.sh R_runif_2 ${REPS}
-bash ./runmulti.sh R_runif_3 ${REPS}
+#bash ./runmulti.sh R_dnorm_1 ${REPS}
+#bash ./runmulti.sh R_dnorm_2 ${REPS}
+#bash ./runmulti.sh R_rbinom_1 ${REPS}
+#bash ./runmulti.sh R_rbinom_2 ${REPS}
+#bash ./runmulti.sh R_rbinom_3 ${REPS}
+#bash ./runmulti.sh R_rdunif_1 ${REPS}
+#bash ./runmulti.sh R_rdunif_2 ${REPS}
+#bash ./runmulti.sh R_rdunif_3 ${REPS}
+#bash ./runmulti.sh R_rexp_1 ${REPS}
+#bash ./runmulti.sh R_rexp_2 ${REPS}
+#bash ./runmulti.sh R_rnorm_1 ${REPS}
+#bash ./runmulti.sh R_rnorm_2 ${REPS}
+#bash ./runmulti.sh R_rnorm_3 ${REPS}
+#bash ./runmulti.sh R_rpois_1 ${REPS}
+#bash ./runmulti.sh R_rpois_2 ${REPS}
+#bash ./runmulti.sh R_runif_1 ${REPS}
+#bash ./runmulti.sh R_runif_2 ${REPS}
+#bash ./runmulti.sh R_runif_3 ${REPS}
 
 #bash ./runmulti.sh S_interactingNeighborCount_1D ${REPS}
 #bash ./runmulti.sh S_interactingNeighborCount_2D ${REPS}
