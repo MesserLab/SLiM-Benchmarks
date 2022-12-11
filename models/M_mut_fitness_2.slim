@@ -25,8 +25,8 @@ initialize() {
 
 // generate lots of new mutations for 10 ticks
 2:10 reproduction(NULL, "F") {
-	subpop.addCrossed(individual, subpop.sampleIndividuals(1, sex="M"));
-	subpop.addCrossed(individual, subpop.sampleIndividuals(1, sex="M"));
+	subpop.addCrossed(individual, subpop.sampleIndividuals(1, sex="M"), sex="M");
+	subpop.addCrossed(individual, subpop.sampleIndividuals(1, sex="M"), sex="F");
 }
 
 // scale up to 1000 individuals; at about 5.5 seconds we're done with setup

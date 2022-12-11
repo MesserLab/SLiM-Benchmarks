@@ -108,6 +108,9 @@ for ((i=1;i<=replicates;i++)) ; do
     else
         output=$(./slim_multi -time -mem -s ${i} -l 0 -maxthreads ${threadcount} ${modelpath} 2>&1)
     fi
+
+    #if an error occurs, it is useful to uncomment this line to see it
+    #echo "${output}"
     
     [[ ${output} =~ ${cpuregex} ]] && cpu=${BASH_REMATCH[1]}
     [[ ${output} =~ ${wallregex} ]] && wall=${BASH_REMATCH[1]}
