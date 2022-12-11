@@ -1,0 +1,46 @@
+/*
+	M_mut_fitness_1.slim
+	
+	A simple nonWF model designed to exercise FitnessOfParentWithGenomeIndices_NoCallbacks() (asexual).
+*/
+
+initialize() {
+	initializeSLiMModelType("nonWF");
+	initializeSLiMOptions(mutationRuns=128);
+	
+	// beneficial mutations make no difference since fitness is already 1.0
+	initializeMutationType("m1", 0.5, "f", 0.00001);
+	
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, 1e9-1);
+	initializeMutationRate(1e-4);
+	initializeRecombinationRate(1e-8);
+}
+
+// start at size 10
+1 early() {
+	sim.addSubpop("p1", 10);
+}
+
+// generate lots of new mutations for 10 ticks
+2:10 reproduction() {
+	subpop.addCrossed(individual, subpop.sampleIndividuals(1));
+}
+
+// scale up to 1000 individuals; at about 5.5 seconds we're done with setup
+11 first() {
+	sim.chromosome.setMutationRate(0.0);
+}
+11 reproduction() {
+	for (i in 1:100)
+		subpop.addCrossed(individual, subpop.sampleIndividuals(1));
+}
+
+// kill the parental generation after each new generation
+2:11 early() {
+	parents = p1.subsetIndividuals(minAge=1);
+	parents.fitnessScaling = 0.0;
+}
+
+// then coast, with no reproduction, long enough for this stage to dominate
+15 late() { }

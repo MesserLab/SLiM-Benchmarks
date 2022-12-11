@@ -39,7 +39,9 @@ REPS=1
 
 #bash ./runmulti.sh M_neutral_WF ${REPS}
 #bash ./runmulti.sh M_nonneutral_WF ${REPS}
-bash ./runmulti.sh M_mut_tallies ${REPS}
+bash ./runmulti.sh M_mut_fitness_1 ${REPS}
+bash ./runmulti.sh M_mut_fitness_2 ${REPS}
+#bash ./runmulti.sh M_mut_tallies ${REPS}
 #bash ./runmulti.sh M_turnover_nonWF ${REPS}
 #bash ./runmulti.sh M_turnover_WF ${REPS}
 
