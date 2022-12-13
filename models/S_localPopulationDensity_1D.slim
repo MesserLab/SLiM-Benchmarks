@@ -1,7 +1,7 @@
 /*
-	S_totalOfNeighborStrengths_1D.slim
+	S_localPopulationDensity_1D.slim
 	
-	This exercises building strength sparse vectors.  This is the 1D case.
+	This exercises querying with localPopulationDensity(), in 1D.
 	The maxDistance is set to produce about 27 million interactions, and
 	then the number of replicates is scaled to take about ten seconds.
 */
@@ -18,7 +18,7 @@ initialize() {
 	inds.setSpatialPosition(p1.pointUniform(p1.individualCount));
 	
 	i1.evaluate(p1);
-	x = sapply(1:45, "sum(i1.totalOfNeighborStrengths(inds));");
+	x = sapply(1:45, "sum(i1.localPopulationDensity(inds));");
 	
 	// summarize results
 	first_x = x[0];

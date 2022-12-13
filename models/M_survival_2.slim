@@ -1,0 +1,26 @@
+/*
+	M_survival_2.slim
+	
+	Very slow turnover of a population with overlapping generations and with
+	no genetics.  This exercises parts of the tick cycle other than reproduction
+	and fitness evaluation, particularly the survival/viability tick cycle
+	stage, without callbacks.  (sexual case)
+*/
+
+initialize() {
+	initializeSLiMModelType("nonWF");
+	initializeSex("A");
+	defineConstant("K", 10000000);
+}
+2 reproduction() {
+	// make one offspring and stop
+	subpop.addCloned(individual);
+	self.active = 0;
+}
+1 early() {
+	sim.addSubpop("p1", K);
+}
+early() {
+	p1.fitnessScaling = 0.99999999;
+}
+100 late() { }

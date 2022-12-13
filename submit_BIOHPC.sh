@@ -42,7 +42,8 @@ REPS=1
 #bash ./runmulti.sh M_mut_fitness_1 ${REPS}
 #bash ./runmulti.sh M_mut_fitness_2 ${REPS}
 #bash ./runmulti.sh M_mut_tallies ${REPS}
-bash ./runmulti.sh M_survival ${REPS}
+#bash ./runmulti.sh M_survival_1 ${REPS}
+#bash ./runmulti.sh M_survival_2 ${REPS}
 #bash ./runmulti.sh M_turnover_nonWF ${REPS}
 #bash ./runmulti.sh M_turnover_WF ${REPS}
 
@@ -65,9 +66,13 @@ bash ./runmulti.sh M_survival ${REPS}
 #bash ./runmulti.sh R_runif_2 ${REPS}
 #bash ./runmulti.sh R_runif_3 ${REPS}
 
+bash ./runmulti.sh S_clippedIntegral_1D ${REPS}
+bash ./runmulti.sh S_clippedIntegral_2D ${REPS}
 #bash ./runmulti.sh S_interactingNeighborCount_1D ${REPS}
 #bash ./runmulti.sh S_interactingNeighborCount_2D ${REPS}
 #bash ./runmulti.sh S_interactingNeighborCount_3D ${REPS}
+bash ./runmulti.sh S_localPopulationDensity_1D ${REPS}
+bash ./runmulti.sh S_localPopulationDensity_2D ${REPS}
 #bash ./runmulti.sh S_totalOfNeighborStrengths_1D ${REPS}
 #bash ./runmulti.sh S_totalOfNeighborStrengths_2D ${REPS}
 #bash ./runmulti.sh S_totalOfNeighborStrengths_3D ${REPS}
