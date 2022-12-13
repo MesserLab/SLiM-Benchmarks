@@ -9,7 +9,19 @@ sem <- function(x) sd(x)/sqrt(length(x))
 
 
 # change to the SLiM-Benchmarks folder, wherever that lives
-setwd("~/Desktop/SLiM-Benchmarks")
+setwd("~/Desktop/benchmarking/SLiM-Benchmarks")
+#setwd("~/Desktop/benchmarking/BHPC 2022-09-29")
+#setwd("~/Desktop/benchmarking/BHPC 2022-10-27")
+#setwd("~/Desktop/benchmarking/BHPC 2022-10-29-1")
+#setwd("~/Desktop/benchmarking/BHPC 2022-10-29-2")
+#setwd("~/Desktop/benchmarking/BHPC 2022-10-29-3")
+#setwd("~/Desktop/benchmarking/BHPC 2022-10-31")
+#setwd("~/Desktop/benchmarking/BHPC 2022-11-01")
+#setwd("~/Desktop/benchmarking/BHPC 2022-11-06")
+#setwd("~/Desktop/benchmarking/BHPC 2022-12-08")
+#setwd("~/Desktop/benchmarking/BHPC 2022-12-10-1")
+#setwd("~/Desktop/benchmarking/BHPC 2022-12-10-2")
+#setwd("~/Desktop/benchmarking/BHPC 2022-12-11")
 
 # find the names of all model files present
 model_files <- list.files("./models/", pattern="*.slim")
@@ -19,6 +31,9 @@ model_names <- gsub("(.*)\\.slim", "\\1", model_files)
 st_models <- list.files("./times_single/", pattern="*.txt", include.dirs=T)
 st_names <- gsub("(.*)\\.txt", "\\1", st_models)
 model_names <- intersect(model_names, st_names)
+
+# exclude models that do not have a given prefix
+#model_names  <- model_names[grepl("^R_", model_names)]
 
 # generate the model_files list for the models we will plot
 model_files <- paste0(model_names, ".slim")
@@ -36,7 +51,7 @@ timing_folders <- c("times_single", parallel_folders)
 
 # plot pre-configuration
 x_range <- range(parallel_threads)
-speedup_range <- c(1, 8)
+speedup_range <- x_range # c(1, 8)
 colors <- rainbow(length(model_files), end=0.80)
 #if (length(model_files) == 1) colors <- "#FF0000" else colors <- distinctColorPalette(length(model_files), runTsne=T)
 ltys <- rep(1, length.out=length(model_files))
@@ -48,8 +63,14 @@ par(mar=c(3.1, 3.1, 2, 2), tcl=-0.3, mgp=c(1.9, 0.4, 0), family="serif")
 plot(x=x_range, y=speedup_range, type="n", xlab="Thread count", ylab="Speed relative to single-threaded", xaxt="n")
 
 axis(1, at=timing_threads, labels=timing_threads)
-for (h in seq(1, 11, 1))
-	abline(h=h, col="lightgray")
+if (max(speedup_range) < 10)
+{
+	for (h in seq(1, 11, 1))
+		abline(h=h, col="lightgray")
+} else {
+	for (h in c(1, seq(5, max(speedup_range) + 1, 5)))
+		abline(h=h, col="lightgray")
+}
 abline(a=0, b=1, col="black", lwd=2)
 
 for (drawrep in 1:3)
