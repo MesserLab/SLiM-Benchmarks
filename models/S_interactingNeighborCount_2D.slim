@@ -18,7 +18,7 @@ initialize() {
 	inds.setSpatialPosition(p1.pointUniform(p1.individualCount));
 	
 	i1.evaluate(p1);
-	x = sapply(1:70, "sum(i1.interactingNeighborCount(inds));");
+	x = sapply(1:70, "sumExact(i1.interactingNeighborCount(inds));");
 	
 	// summarize results
 	first_x = x[0];

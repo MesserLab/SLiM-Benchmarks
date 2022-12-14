@@ -18,7 +18,7 @@ initialize() {
 	inds.setSpatialPosition(p1.pointUniform(p1.individualCount));
 	
 	i1.evaluate(p1);
-	x = sapply(1:35, "sum(i1.localPopulationDensity(inds));");
+	x = sapply(1:35, "sumExact(i1.localPopulationDensity(inds));");
 	
 	// summarize results
 	first_x = x[0];

@@ -17,7 +17,7 @@ initialize() {
 	
 	i1.evaluate(p1);
 	start = clock();
-	x = sapply(1:400, "sum(i1.clippedIntegral(inds));");
+	x = sapply(1:400, "sumExact(i1.clippedIntegral(inds));");
 	catn("time for parallelizable fraction: " + (clock() - start));
 	
 	// summarize results
