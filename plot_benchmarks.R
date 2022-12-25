@@ -9,7 +9,7 @@ sem <- function(x) sd(x)/sqrt(length(x))
 
 
 # change to the SLiM-Benchmarks folder, wherever that lives
-setwd("~/Desktop/benchmarking/SLiM-Benchmarks")
+#setwd("~/Desktop/benchmarking/SLiM-Benchmarks")
 #setwd("~/Desktop/benchmarking/BHPC 2022-09-29")
 #setwd("~/Desktop/benchmarking/BHPC 2022-10-27")
 #setwd("~/Desktop/benchmarking/BHPC 2022-10-29-1")
@@ -22,6 +22,9 @@ setwd("~/Desktop/benchmarking/SLiM-Benchmarks")
 #setwd("~/Desktop/benchmarking/BHPC 2022-12-10-1")
 #setwd("~/Desktop/benchmarking/BHPC 2022-12-10-2")
 #setwd("~/Desktop/benchmarking/BHPC 2022-12-11")
+#setwd("~/Desktop/benchmarking/BHPC 2022-12-13-1")
+#setwd("~/Desktop/benchmarking/BHPC 2022-12-13-2")
+setwd("~/Desktop/benchmarking/BHPC 2022-12-13-3")
 
 # find the names of all model files present
 model_files <- list.files("./models/", pattern="*.slim")

@@ -36,30 +36,5 @@
 SLIM_BENCHTHREADS="1 2 3 4 8 16 32 48 64"
 export SLIM_BENCHTHREADS
 
-REPS=5
-
-# run all models
-#bash ./runall.sh ${REPS}
-
-# run specified models
-bash ./runmulti.sh E_set_fitnessScaling_1 ${REPS}
-bash ./runmulti.sh E_set_fitnessScaling_2 ${REPS}
-bash ./runmulti.sh E_sort_integer ${REPS}
-bash ./runmulti.sh E_sum_float ${REPS}
-bash ./runmulti.sh E_sum_integer ${REPS}
-bash ./runmulti.sh E_sum_logical ${REPS}
-bash ./runmulti.sh E_sumOfMutationsOfType ${REPS}
-#bash ./runmulti.sh M_neutral_WF ${REPS}
-#bash ./runmulti.sh M_nonneutral_WF ${REPS}
-#bash ./runmulti.sh M_turnover_nonWF ${REPS}
-#bash ./runmulti.sh M_turnover_WF ${REPS}
-bash ./runmulti.sh S_interactingNeighborCount_1D ${REPS}
-bash ./runmulti.sh S_interactingNeighborCount_2D ${REPS}
-bash ./runmulti.sh S_interactingNeighborCount_3D ${REPS}
-bash ./runmulti.sh S_totalOfNeighborStrengths_1D ${REPS}
-bash ./runmulti.sh S_totalOfNeighborStrengths_2D ${REPS}
-bash ./runmulti.sh S_totalOfNeighborStrengths_3D ${REPS}
-#bash ./runmulti.sh T_treeseq_edges ${REPS}
-#bash ./runmulti.sh T_treeseq_simplify ${REPS}
-#bash ./runmulti.sh Z_runner_test ${REPS}
+bash ./submit_TASKS.sh
 
