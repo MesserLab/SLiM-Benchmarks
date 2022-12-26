@@ -18,13 +18,13 @@ initialize() {
 	inds.setSpatialPosition(p1.pointUniform(p1.individualCount));
 	
 	i1.evaluate(p1);
-	x = sapply(1:45, "sumExact(i1.localPopulationDensity(inds));");
+	x = sapply(1:45, "sum(i1.localPopulationDensity(inds));");
 	
 	// summarize results
 	first_x = x[0];
-	all_equal = all(x == first_x);
-	if (all_equal)
-		catn("### ALL " + first_x + " (" + length(x) + ") ###");
+	max_diff = max(abs(x - first_x));
+	if (max_diff < 1e-7)
+		catn("### ALL " + first_x + " (" + length(x) + ", " + max_diff + ") ###");
 	else
-		catn("### *** INCONSISTENT *** " + mean(x) + " (" + length(x) + ") *** ###");
+		catn("### *** INCONSISTENT *** " + max_diff + " (" + length(x) + ") *** ###");
 }

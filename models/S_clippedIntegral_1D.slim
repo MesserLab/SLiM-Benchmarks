@@ -17,14 +17,14 @@ initialize() {
 	
 	i1.evaluate(p1);
 	start = clock();
-	x = sapply(1:400, "sumExact(i1.clippedIntegral(inds));");
+	x = sapply(1:750, "sum(i1.clippedIntegral(inds));");
 	catn("time for parallelizable fraction: " + (clock() - start));
 	
 	// summarize results
 	first_x = x[0];
-	all_equal = all(x == first_x);
-	if (all_equal)
-		catn("### ALL " + first_x + " (" + length(x) + ") ###");
+	max_diff = max(abs(x - first_x));
+	if (max_diff < 1e-7)
+		catn("### ALL " + first_x + " (" + length(x) + ", " + max_diff + ") ###");
 	else
-		catn("### *** INCONSISTENT *** " + mean(x) + " (" + length(x) + ") *** ###");
+		catn("### *** INCONSISTENT *** " + max_diff + " (" + length(x) + ") *** ###");
 }
