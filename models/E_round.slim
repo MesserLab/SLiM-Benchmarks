@@ -1,0 +1,21 @@
+/*
+	E_round.slim
+	
+	This exercises Eidos function round(float x)
+*/
+
+initialize() { }
+1 early() {
+	x = runif(10000000, -100, 100);
+	o = round(x);	// we only do a consistency check
+	
+	for (i in 1:500)
+		y = round(x);
+	
+	// test only the last one, to avoid overhead
+	if (identical(o, y))
+		catn("### CORRECT ###");
+	else
+		catn("### *** INCORRECT *** ###");
+}
+

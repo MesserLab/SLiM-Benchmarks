@@ -1,0 +1,21 @@
+/*
+	E_log10_float.slim
+	
+	This exercises Eidos function log10(float x)
+*/
+
+initialize() { }
+1 early() {
+	o = runif(10000000, -100, 100);
+	x = 10 ^ o;
+	
+	for (i in 1:150)
+		y = log10(x);
+	
+	// test only the last one, to avoid overhead
+	if (all(abs(o - y) < 1e-13))
+		catn("### CORRECT ###");
+	else
+		catn("### *** INCORRECT *** ###");
+}
+

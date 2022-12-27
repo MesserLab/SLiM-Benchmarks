@@ -1,0 +1,22 @@
+/*
+	E_exp_float.slim
+	
+	This exercises Eidos function exp(float x)
+*/
+
+initialize() { }
+1 early() {
+	x = runif(10000000, -100, 100);
+	o = E ^ x;
+	
+	for (i in 1:150)
+		y = exp(x);
+	
+	// test only the last one, to avoid overhead
+	// we test percent error, since the absolute error can be huge
+	if (all(abs(1.0 - o/y) < 1e-13))
+		catn("### CORRECT ###");
+	else
+		catn("### *** INCORRECT *** ###");
+}
+

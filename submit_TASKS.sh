@@ -15,13 +15,24 @@ REPS=2
 #bash ./runall.sh ${REPS}
 
 # run specified models
-bash ./runmulti.sh E_set_fitnessScaling_1 ${REPS}
-bash ./runmulti.sh E_set_fitnessScaling_2 ${REPS}
+bash ./runmulti.sh C_set_fitnessScaling_1 ${REPS}
+bash ./runmulti.sh C_set_fitnessScaling_2 ${REPS}
+bash ./runmulti.sh C_sumOfMutationsOfType ${REPS}
+
+bash ./runmulti.sh E_abs_float ${REPS}
+bash ./runmulti.sh E_ceil ${REPS}
+bash ./runmulti.sh E_exp_float ${REPS}
+bash ./runmulti.sh E_floor ${REPS}
+bash ./runmulti.sh E_log_float ${REPS}
+bash ./runmulti.sh E_log10_float ${REPS}
+bash ./runmulti.sh E_log2_float ${REPS}
+bash ./runmulti.sh E_round ${REPS}
 bash ./runmulti.sh E_sort_integer ${REPS}
+bash ./runmulti.sh E_sqrt_float ${REPS}
 bash ./runmulti.sh E_sum_float ${REPS}
 bash ./runmulti.sh E_sum_integer ${REPS}
 bash ./runmulti.sh E_sum_logical ${REPS}
-bash ./runmulti.sh E_sumOfMutationsOfType ${REPS}
+bash ./runmulti.sh E_trunc ${REPS}
 
 bash ./runmulti.sh M_neutral_WF ${REPS}
 bash ./runmulti.sh M_nonneutral_WF ${REPS}

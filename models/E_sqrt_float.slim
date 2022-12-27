@@ -1,0 +1,21 @@
+/*
+	E_sqrt_float.slim
+	
+	This exercises Eidos function sqrt(float x)
+*/
+
+initialize() { }
+1 early() {
+	o = runif(10000000, 0, 1000);
+	x = o ^ 2;
+	
+	for (i in 1:400)
+		y = sqrt(x);
+	
+	// test only the last one, to avoid overhead
+	if (all(abs(o - y) < 1e-13))
+		catn("### CORRECT ###");
+	else
+		catn("### *** INCORRECT *** ###");
+}
+

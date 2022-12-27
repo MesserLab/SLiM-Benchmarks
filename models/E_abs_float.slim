@@ -1,0 +1,21 @@
+/*
+	E_abs_float.slim
+	
+	This exercises Eidos function abs(float x)
+*/
+
+initialize() { }
+1 early() {
+	o = runif(10000000, 0, 1000);			// known nonnegative
+	x = o * (rdunif(10000000) * 2 - 1);	// flip half the signs
+	
+	for (i in 1:3000)
+		y = abs(x);
+	
+	// test only the last one, to avoid overhead
+	if (identical(o, y))
+		catn("### CORRECT ###");
+	else
+		catn("### *** INCORRECT *** ###");
+}
+
