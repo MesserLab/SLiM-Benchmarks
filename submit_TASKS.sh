@@ -34,6 +34,19 @@ bash ./runmulti.sh E_sum_integer ${REPS}
 bash ./runmulti.sh E_sum_logical ${REPS}
 bash ./runmulti.sh E_trunc ${REPS}
 
+bash ./runmulti.sh X_max_integer ${REPS}
+bash ./runmulti.sh X_max_float ${REPS}
+bash ./runmulti.sh X_min_integer ${REPS}
+bash ./runmulti.sh X_min_float ${REPS}
+bash ./runmulti.sh X_pmax_integer_1 ${REPS}
+bash ./runmulti.sh X_pmax_integer_2 ${REPS}
+bash ./runmulti.sh X_pmax_float_1 ${REPS}
+bash ./runmulti.sh X_pmax_float_2 ${REPS}
+bash ./runmulti.sh X_pmin_integer_1 ${REPS}
+bash ./runmulti.sh X_pmin_integer_2 ${REPS}
+bash ./runmulti.sh X_pmin_float_1 ${REPS}
+bash ./runmulti.sh X_pmin_float_2 ${REPS}
+
 bash ./runmulti.sh M_neutral_WF ${REPS}
 bash ./runmulti.sh M_nonneutral_WF ${REPS}
 bash ./runmulti.sh M_mut_fitness_1 ${REPS}

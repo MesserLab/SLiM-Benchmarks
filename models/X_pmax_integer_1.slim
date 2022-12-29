@@ -1,0 +1,20 @@
+/*
+	X_pmax_integer_1.slim
+	
+	This exercises Eidos function pmax(integer x, integer$ y)
+*/
+
+initialize() { }
+1 early() {
+	x = rdunif(10000000, -1000000000, 1000000000);
+	o = ifelse(x > 1703, x, 1703);
+	
+	for (i in 1:3000)
+		y = pmax(x, 1703);
+	
+	// test only the last one, to avoid overhead
+	if (identical(o, y))
+		catn("### CORRECT ###");
+	else
+		catn("### *** INCORRECT *** ###");
+}

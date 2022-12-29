@@ -1,0 +1,19 @@
+/*
+	X_max_float.slim
+	
+	This exercises Eidos function max(float x)
+*/
+
+initialize() { }
+1 early() {
+	y = runif(10000000, -1000000000, 1000000000);
+	x = sapply(1:1500, "max(y);");
+	
+	// summarize results
+	first_x = x[0];
+	all_equal = all(x == first_x);
+	if (all_equal)
+		catn("### ALL " + first_x + " (" + length(x) + ") ###");
+	else
+		catn("### *** INCONSISTENT *** " + mean(x) + " (" + length(x) + ") *** ###");
+}

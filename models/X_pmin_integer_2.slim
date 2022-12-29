@@ -1,0 +1,21 @@
+/*
+	X_pmin_integer_2.slim
+	
+	This exercises Eidos function pmin(integer x, integer y)
+*/
+
+initialize() { }
+1 early() {
+	a = rdunif(10000000, -1000000000, 1000000000);
+	b = rdunif(10000000, -1000000000, 1000000000);
+	o = ifelse(a < b, a, b);
+	
+	for (i in 1:2000)
+		y = pmin(a, b);
+	
+	// test only the last one, to avoid overhead
+	if (identical(o, y))
+		catn("### CORRECT ###");
+	else
+		catn("### *** INCORRECT *** ###");
+}
