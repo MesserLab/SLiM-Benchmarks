@@ -27,7 +27,6 @@ bash ./runmulti.sh E_log_float ${REPS}
 bash ./runmulti.sh E_log10_float ${REPS}
 bash ./runmulti.sh E_log2_float ${REPS}
 bash ./runmulti.sh E_round ${REPS}
-bash ./runmulti.sh E_sort_integer ${REPS}
 bash ./runmulti.sh E_sqrt_float ${REPS}
 bash ./runmulti.sh E_sum_float ${REPS}
 bash ./runmulti.sh E_sum_integer ${REPS}
@@ -46,6 +45,16 @@ bash ./runmulti.sh X_pmin_integer_1 ${REPS}
 bash ./runmulti.sh X_pmin_integer_2 ${REPS}
 bash ./runmulti.sh X_pmin_float_1 ${REPS}
 bash ./runmulti.sh X_pmin_float_2 ${REPS}
+
+bash ./runmulti.sh V_match_integer ${REPS}
+bash ./runmulti.sh V_match_float ${REPS}
+bash ./runmulti.sh V_match_string ${REPS}
+bash ./runmulti.sh V_match_object ${REPS}
+bash ./runmulti.sh V_sample_R_integer ${REPS}
+bash ./runmulti.sh V_sample_R_float ${REPS}
+bash ./runmulti.sh V_sample_R_object ${REPS}
+bash ./runmulti.sh V_sort_integer ${REPS}
+bash ./runmulti.sh V_tabulate ${REPS}
 
 bash ./runmulti.sh M_neutral_WF ${REPS}
 bash ./runmulti.sh M_nonneutral_WF ${REPS}

@@ -1,0 +1,21 @@
+/*
+	V_match_string.slim
+	
+	This exercises Eidos function match(string x, string table)
+*/
+
+initialize() { }
+1 early() {
+	table = sample(asString(1:10000), 1000, replace=F);
+	pos = rdunif(10000000, min=0, max=999);
+	x = table[pos];
+	
+	for (i in 1:60)
+		y = match(x, table);
+	
+	// test only the last one, to avoid overhead
+	if (identical(pos, y))
+		catn("### CORRECT ###");
+	else
+		catn("### *** INCORRECT *** ###");
+}

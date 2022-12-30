@@ -1,0 +1,20 @@
+/*
+	V_tabulate.slim
+	
+	This exercises Eidos function tabulate(integer bin)
+*/
+
+initialize() { }
+1 early() {
+	values = rdunif(10000000, min=0, max=10000);
+	o = tabulate(values);
+	
+	for (i in 1:1500)
+		y = tabulate(values);
+	
+	// test only the last one, to avoid overhead
+	if (identical(o, y))
+		catn("### CORRECT ###");
+	else
+		catn("### *** INCORRECT *** ###");
+}

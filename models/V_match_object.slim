@@ -1,0 +1,22 @@
+/*
+	V_match_object.slim
+	
+	This exercises Eidos function match(object x, object table)
+*/
+
+initialize() { }
+1 early() {
+	dicts = sapply(1:10000, "Dictionary('a', applyValue);");
+	table = sample(dicts, 1000, replace=F);
+	pos = rdunif(10000000, min=0, max=999);
+	x = table[pos];
+	
+	for (i in 1:125)
+		y = match(x, table);
+	
+	// test only the last one, to avoid overhead
+	if (identical(pos, y))
+		catn("### CORRECT ###");
+	else
+		catn("### *** INCORRECT *** ###");
+}

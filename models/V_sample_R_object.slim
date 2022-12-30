@@ -1,0 +1,20 @@
+/*
+	V_sample_R_integer.slim
+	
+	This exercises Eidos function sample(integer x, integer$ size, replace=T, weights=NULL)
+*/
+
+initialize() { }
+1 early() {
+	x = sapply(0:1000, "Dictionary('a', applyValue);");
+	o = sample(x, 10000000, replace=T);
+	
+	for (i in 1:100)
+		y = sample(x, 10000000, replace=T);
+	
+	// test only the last one, to avoid overhead
+	if (abs(mean(o.getValue("a")) - mean(y.getValue("a"))) < 0.5)
+		catn("### CORRECT ###");
+	else
+		catn("### *** INCORRECT *** ###");
+}
