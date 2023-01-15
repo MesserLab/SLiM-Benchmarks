@@ -17,7 +17,8 @@ REPS=2
 # run specified models
 bash ./runmulti.sh C_containsMarkerMutation ${REPS}
 bash ./runmulti.sh C_countOfMutationsOfType ${REPS}
-bash ./runmulti.sh C_individualsWithPedigreeIDs ${REPS}
+bash ./runmulti.sh C_individualsWithPedigreeIDs_1 ${REPS}
+bash ./runmulti.sh C_individualsWithPedigreeIDs_2 ${REPS}
 bash ./runmulti.sh C_pointInBounds ${REPS}
 bash ./runmulti.sh C_pointPeriodic ${REPS}
 bash ./runmulti.sh C_pointReflected ${REPS}
