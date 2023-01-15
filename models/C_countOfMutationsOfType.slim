@@ -1,7 +1,7 @@
 /*
-	C_sumOfMutationsOfType.slim
+	C_countOfMutationsOfType.slim
 	
-	This exercises Individual method -sumOfMutationsOfType()
+	This exercises Individual method -countOfMutationsOfType()
 */
 
 initialize() {
@@ -27,6 +27,6 @@ mutationEffect(m2) { return 1.0; }
 	// this takes longer than most of the tests, but the setup
 	// takes a long time (~2 s), so... Amdahl's Law
 	start = clock();
-	for (i in 1:5) phenotypes = inds.sumOfMutationsOfType(m2);
+	for (i in 1:5) counts = inds.countOfMutationsOfType(m2);
 	catn("time for parallelizable fraction: " + (clock() - start));
 }

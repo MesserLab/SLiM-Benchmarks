@@ -15,6 +15,17 @@ REPS=2
 #bash ./runall.sh ${REPS}
 
 # run specified models
+bash ./runmulti.sh C_containsMarkerMutation ${REPS}
+bash ./runmulti.sh C_countOfMutationsOfType ${REPS}
+bash ./runmulti.sh C_individualsWithPedigreeIDs ${REPS}
+bash ./runmulti.sh C_pointInBounds ${REPS}
+bash ./runmulti.sh C_pointPeriodic ${REPS}
+bash ./runmulti.sh C_pointReflected ${REPS}
+bash ./runmulti.sh C_pointStopped ${REPS}
+bash ./runmulti.sh C_pointUniform ${REPS}
+bash ./runmulti.sh C_relatedness ${REPS}
+bash ./runmulti.sh C_setSpatialPosition_1 ${REPS}
+bash ./runmulti.sh C_setSpatialPosition_2 ${REPS}
 bash ./runmulti.sh C_set_fitnessScaling_1 ${REPS}
 bash ./runmulti.sh C_set_fitnessScaling_2 ${REPS}
 bash ./runmulti.sh C_sumOfMutationsOfType ${REPS}

@@ -1,0 +1,15 @@
+/*
+	C_pointUniform.slim
+	
+	This exercises the Subpopulation method pointUniform()
+*/
+
+initialize() {
+	initializeSLiMOptions(dimensionality="xy");
+}
+1 late() {
+	sim.addSubpop("p1", 100);
+	p1.setSpatialBounds(c(0, 0, 100, 100));
+	
+	for (i in 1:200) p1.pointUniform(10000000);
+}

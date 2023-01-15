@@ -1,0 +1,24 @@
+/*
+	C_related.slim
+	
+	This exercises the Individual method relatedness()
+*/
+
+initialize() {
+	initializeSLiMOptions(keepPedigrees=T);
+}
+1 early() { sim.addSubpop("p1", 100); }
+19 late() {
+	p1.setSubpopulationSize(1000000);
+}
+20 late() {
+	inds = p1.individuals;
+	focalInd = inds[0];
+	
+	start = clock();
+	for (i in 1:150) focalInd.relatedness(inds);
+	catn("time for parallelizable fraction: " + (clock() - start));
+	
+	// summarize results
+	catn("### NO SUMMARY ###");
+}

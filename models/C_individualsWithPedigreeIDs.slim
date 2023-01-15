@@ -1,0 +1,21 @@
+/*
+	C_individualsWithPedigreeIDs.slim
+	
+	This exercises finding individuals with individualsWithPedigreeIDs()
+*/
+
+initialize() {
+	initializeSLiMOptions(keepPedigrees=T);
+}
+1 early() {
+	sim.addSubpop("p1", 1000000);
+	inds = p1.individuals;
+	minID = min(inds.pedigreeID);
+	maxID = max(inds.pedigreeID);
+	ids = rdunif(1000000, minID, maxID + 1000000);
+	
+	for (i in 1:100) sim.individualsWithPedigreeIDs(ids);
+	
+	// summarize results
+	catn("### NO SUMMARY ###");
+}

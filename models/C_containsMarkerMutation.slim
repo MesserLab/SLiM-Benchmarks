@@ -1,7 +1,7 @@
 /*
-	C_sumOfMutationsOfType.slim
+	C_containsMarkerMutation.slim
 	
-	This exercises Individual method -sumOfMutationsOfType()
+	This exercises Individual method -containsMarkerMutation()
 */
 
 initialize() {
@@ -20,13 +20,21 @@ mutationEffect(m2) { return 1.0; }
 	sim.chromosome.setRecombinationRate(0.0);
 	p1.setCloningRate(1.0);
 	p1.setSubpopulationSize(1000000);
+	
+	// choose a mutation near 0.5 frequency to search for
+	muts = sim.mutations;
+	freqs = sim.mutationFrequencies(NULL);
+	d_05 = abs(0.5 - freqs);
+	i = whichMin(d_05);
+	defineGlobal("MUT", muts[i]);
+	catn("chose mutation with frequency " + freqs[i]);
 }
 200 late() {
-	inds = sim.subpopulations.individuals;
+	genomes = sim.subpopulations.genomes;
 	
 	// this takes longer than most of the tests, but the setup
 	// takes a long time (~2 s), so... Amdahl's Law
 	start = clock();
-	for (i in 1:5) phenotypes = inds.sumOfMutationsOfType(m2);
+	for (i in 1:400) counts = genomes.containsMarkerMutation(MUT.mutationType, MUT.position, returnMutation=F);
 	catn("time for parallelizable fraction: " + (clock() - start));
 }
