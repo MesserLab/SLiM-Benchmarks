@@ -1,0 +1,32 @@
+/*
+	C_countOfMutationsOfType_I.slim
+	
+	This exercises Individual method -countOfMutationsOfType()
+*/
+
+initialize() {
+	initializeMutationRate(1e-6);
+	initializeMutationType("m1", 0.5, "f", 0.0);       // neutral
+	initializeMutationType("m2", 0.5, "n", 0.0, 0.2);  // QTLs
+	m2.convertToSubstitution = F;
+	initializeGenomicElementType("g1", c(m1, m2), c(1,1));
+	initializeGenomicElement(g1, 0, 9999999);
+	initializeRecombinationRate(1e-6);
+}
+mutationEffect(m2) { return 1.0; }
+1 early() { sim.addSubpop("p1", 100); }
+199 late() {
+	sim.chromosome.setMutationRate(0.0);
+	sim.chromosome.setRecombinationRate(0.0);
+	p1.setCloningRate(1.0);
+	p1.setSubpopulationSize(1000000);
+}
+200 late() {
+	inds = sim.subpopulations.individuals;
+	
+	// this takes longer than most of the tests, but the setup
+	// takes a long time (~2 s), so... Amdahl's Law
+	start = clock();
+	for (i in 1:5) counts = inds.countOfMutationsOfType(m2);
+	catn("time for parallelizable fraction: " + (clock() - start));
+}

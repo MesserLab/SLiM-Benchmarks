@@ -1,0 +1,21 @@
+/*
+	C_sampleIndividuals_2.slim
+	
+	This exercises the Subpopulation method sampleIndividuals(),
+	in the case where more constraints (migrant=F) are given
+*/
+
+initialize() {
+	initializeSLiMOptions(keepPedigrees=T);
+}
+1 early() {
+	sim.addSubpop("p1", 1000000);
+	inds = p1.individuals;
+	minID = min(inds.pedigreeID);
+	maxID = max(inds.pedigreeID);
+	
+	for (i in 1:300) p1.sampleIndividuals(1000000, replace=T, migrant=F);
+	
+	// summarize results
+	catn("### NO SUMMARY ###");
+}

@@ -19,14 +19,9 @@ bash ./runmulti.sh C_containsMarkerMutation ${REPS}
 bash ./runmulti.sh C_countOfMutationsOfType ${REPS}
 bash ./runmulti.sh C_individualsWithPedigreeIDs_1 ${REPS}
 bash ./runmulti.sh C_individualsWithPedigreeIDs_2 ${REPS}
-bash ./runmulti.sh C_pointInBounds ${REPS}
-bash ./runmulti.sh C_pointPeriodic ${REPS}
-bash ./runmulti.sh C_pointReflected ${REPS}
-bash ./runmulti.sh C_pointStopped ${REPS}
-bash ./runmulti.sh C_pointUniform ${REPS}
 bash ./runmulti.sh C_relatedness ${REPS}
-bash ./runmulti.sh C_setSpatialPosition_1 ${REPS}
-bash ./runmulti.sh C_setSpatialPosition_2 ${REPS}
+bash ./runmulti.sh C_sampleIndividuals_1 ${REPS}
+bash ./runmulti.sh C_sampleIndividuals_2 ${REPS}
 bash ./runmulti.sh C_set_fitnessScaling_1 ${REPS}
 bash ./runmulti.sh C_set_fitnessScaling_2 ${REPS}
 bash ./runmulti.sh C_sumOfMutationsOfType ${REPS}
@@ -77,6 +72,15 @@ bash ./runmulti.sh M_survival_1 ${REPS}
 bash ./runmulti.sh M_survival_2 ${REPS}
 bash ./runmulti.sh M_turnover_nonWF ${REPS}
 bash ./runmulti.sh M_turnover_WF ${REPS}
+
+bash ./runmulti.sh P_pointInBounds ${REPS}
+bash ./runmulti.sh P_pointPeriodic ${REPS}
+bash ./runmulti.sh P_pointReflected ${REPS}
+bash ./runmulti.sh P_pointStopped ${REPS}
+bash ./runmulti.sh P_pointUniform ${REPS}
+bash ./runmulti.sh P_setSpatialPosition_1 ${REPS}
+bash ./runmulti.sh P_setSpatialPosition_2 ${REPS}
+bash ./runmulti.sh P_spatialMapValue ${REPS}
 
 bash ./runmulti.sh R_dnorm_1 ${REPS}
 bash ./runmulti.sh R_dnorm_2 ${REPS}

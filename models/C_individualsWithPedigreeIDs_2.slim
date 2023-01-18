@@ -3,6 +3,9 @@
 	
 	This exercises finding individuals with individualsWithPedigreeIDs(),
 	in the case with no missed lookups
+
+	NOTE: This parallelizes poorly because 75% of the time is spent
+	constructing the hash map to do the lookups.
 */
 
 initialize() {

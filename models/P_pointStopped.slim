@@ -1,24 +1,24 @@
 /*
-	C_pointPeriodic.slim
+	P_pointStopped.slim
 	
-	This exercises the Subpopulation method pointPeriodic()
+	This exercises the Subpopulation method pointStopped()
 */
 
 initialize() {
-	initializeSLiMOptions(dimensionality="xy", periodicity="xy");
+	initializeSLiMOptions(dimensionality="xy");
 }
 1 late() {
 	sim.addSubpop("p1", 100);
 	p1.setSpatialBounds(c(0, 0, 100, 100));
 	points = runif(10000000 * 2, min=-20, max=120);
 	
-	x = p1.pointPeriodic(points);
+	x = p1.pointStopped(points);
 	meanx = mean(x);
-	catn("mean coordinate: " + meanx);
+	//catn("mean coordinate: " + meanx);
 	
-	y = p1.pointPeriodic(points);
+	y = p1.pointStopped(points);
 	
-	for (i in 1:150) p1.pointPeriodic(points);
+	for (i in 1:300) p1.pointStopped(points);
 	
 	// summarize results
 	if (identical(x, y))

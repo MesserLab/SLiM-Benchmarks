@@ -1,7 +1,7 @@
 /*
-	C_pointStopped.slim
+	P_pointReflected.slim
 	
-	This exercises the Subpopulation method pointStopped()
+	This exercises the Subpopulation method pointReflected()
 */
 
 initialize() {
@@ -12,13 +12,13 @@ initialize() {
 	p1.setSpatialBounds(c(0, 0, 100, 100));
 	points = runif(10000000 * 2, min=-20, max=120);
 	
-	x = p1.pointStopped(points);
+	x = p1.pointReflected(points);
 	meanx = mean(x);
 	//catn("mean coordinate: " + meanx);
 	
-	y = p1.pointStopped(points);
+	y = p1.pointReflected(points);
 	
-	for (i in 1:300) p1.pointStopped(points);
+	for (i in 1:150) p1.pointReflected(points);
 	
 	// summarize results
 	if (identical(x, y))

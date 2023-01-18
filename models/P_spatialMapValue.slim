@@ -1,0 +1,25 @@
+/*
+	P_setSpatialPosition_1.slim
+	
+	This exercises the Individual method setSpatialPosition(),
+	setting the same point on each individual.
+*/
+
+initialize() {
+	initializeSLiMOptions(dimensionality="xy");
+}
+1 late() {
+	sim.addSubpop("p1", 10);
+	p1.setSpatialBounds(c(0, 0, 100, 100));
+	
+	map = runif(50 * 50, min=-100, max=100);
+	map = matrix(map, nrow=50, ncol=50);
+	p1.defineSpatialMap("map", "xy", values=map, interpolate=T,
+		valueRange=c(-100, 100), colors=c("black", "yellow"));
+	
+	points = p1.pointUniform(10000000);
+	
+	start = clock();
+	for (i in 1:50) p1.spatialMapValue("map", points);
+	catn("time for parallelizable fraction: " + (clock() - start));
+}

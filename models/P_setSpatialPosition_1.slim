@@ -1,8 +1,8 @@
 /*
-	C_setSpatialPosition_2.slim
+	P_setSpatialPosition_1.slim
 	
 	This exercises the Individual method setSpatialPosition(),
-	setting a different point on each individual.
+	setting the same point on each individual.
 */
 
 initialize() {
@@ -11,10 +11,10 @@ initialize() {
 1 late() {
 	sim.addSubpop("p1", 1000000);
 	p1.setSpatialBounds(c(0, 0, 100, 100));
-	points = p1.pointUniform(p1.individualCount);
+	point = p1.pointUniform(1);
 	inds = p1.individuals;
 	
 	start = clock();
-	for (i in 1:500) inds.setSpatialPosition(points);
+	for (i in 1:600) inds.setSpatialPosition(point);
 	catn("time for parallelizable fraction: " + (clock() - start));
 }
