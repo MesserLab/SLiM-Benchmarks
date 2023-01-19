@@ -22,11 +22,11 @@ mutationEffect(m2) { return 1.0; }
 	p1.setSubpopulationSize(1000000);
 }
 200 late() {
-	inds = sim.subpopulations.individuals;
+	genomes = sim.subpopulations.genomes;
 	
 	// this takes longer than most of the tests, but the setup
 	// takes a long time (~2 s), so... Amdahl's Law
 	start = clock();
-	for (i in 1:5) counts = inds.genomes.countOfMutationsOfType(m2);
+	for (i in 1:5) counts = genomes.countOfMutationsOfType(m2);
 	catn("time for parallelizable fraction: " + (clock() - start));
 }
