@@ -10,21 +10,7 @@ sem <- function(x) sd(x)/sqrt(length(x))
 
 # change to the SLiM-Benchmarks folder, wherever that lives
 #setwd("~/Desktop/benchmarking/SLiM-Benchmarks")
-#setwd("~/Desktop/benchmarking/BHPC 2022-09-29")
-#setwd("~/Desktop/benchmarking/BHPC 2022-10-27")
-#setwd("~/Desktop/benchmarking/BHPC 2022-10-29-1")
-#setwd("~/Desktop/benchmarking/BHPC 2022-10-29-2")
-#setwd("~/Desktop/benchmarking/BHPC 2022-10-29-3")
-#setwd("~/Desktop/benchmarking/BHPC 2022-10-31")
-#setwd("~/Desktop/benchmarking/BHPC 2022-11-01")
-#setwd("~/Desktop/benchmarking/BHPC 2022-11-06")
-#setwd("~/Desktop/benchmarking/BHPC 2022-12-08")
-#setwd("~/Desktop/benchmarking/BHPC 2022-12-10-1")
-#setwd("~/Desktop/benchmarking/BHPC 2022-12-10-2")
-#setwd("~/Desktop/benchmarking/BHPC 2022-12-11")
-#setwd("~/Desktop/benchmarking/BHPC 2022-12-13-1")
-#setwd("~/Desktop/benchmarking/BHPC 2022-12-13-2")
-setwd("~/Desktop/benchmarking/BHPC 2022-12-13-3")
+setwd("~/Desktop/benchmarking/STUDIO 2023-01-21")
 
 # find the names of all model files present
 model_files <- list.files("./models/", pattern="*.slim")
@@ -100,6 +86,11 @@ for (drawrep in 1:3)
 			{
 				timing_data <- read.csv(timing_file)
 				wall_times <- timing_data$wall_secs
+				test_times <- timing_data$test_secs									# self-reported times from each test
+				wall_times <- ifelse(is.na(test_times), wall_times, test_times)		# prefer self-reported times
+				
+				#cat(timing_file, paste(wall_times), "\n")
+				
 				wall_mean <- mean(wall_times)
 				wall_sem <- sem(wall_times)
 				

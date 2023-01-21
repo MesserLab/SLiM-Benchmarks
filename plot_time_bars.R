@@ -9,7 +9,7 @@ sem <- function(x) sd(x)/sqrt(length(x))
 
 # change to the SLiM-Benchmarks folder, wherever that lives
 #setwd("~/Desktop/benchmarking/SLiM-Benchmarks")
-setwd("~/Desktop/benchmarking/STUDIO 2022-12-26")
+setwd("~/Desktop/benchmarking/STUDIO 2023-01-21")
 
 # find the names of all model files present
 model_files <- list.files("./models/", pattern="*.slim")
@@ -64,6 +64,11 @@ for (model_index in seq_along(model_files))
 		{
 			timing_data <- read.csv(timing_file)
 			wall_times <- timing_data$wall_secs
+			test_times <- timing_data$test_secs									# self-reported times from each test
+			wall_times <- ifelse(is.na(test_times), wall_times, test_times)		# prefer self-reported times
+			
+			#cat(timing_file, paste(wall_times), "\n")
+			
 			wall_mean <- mean(wall_times)
 			wall_sem <- sem(wall_times)
 			
