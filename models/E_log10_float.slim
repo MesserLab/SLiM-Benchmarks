@@ -9,8 +9,10 @@ initialize() { }
 	o = runif(10000000, -100, 100);
 	x = 10 ^ o;
 	
+	start = clock("mono");
 	for (i in 1:150)
 		y = log10(x);
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// test only the last one, to avoid overhead
 	if (all(abs(o - y) < 1e-13))

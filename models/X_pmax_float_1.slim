@@ -9,8 +9,10 @@ initialize() { }
 	x = runif(10000000, -1000000000, 1000000000);
 	o = ifelse(x > 1703, x, 1703.0);
 	
+	start = clock("mono");
 	for (i in 1:1200)
 		y = pmax(x, 1703.0);
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// test only the last one, to avoid overhead
 	if (identical(o, y))

@@ -14,7 +14,9 @@ initialize() {
 	minID = min(inds.pedigreeID);
 	maxID = max(inds.pedigreeID);
 	
+	start = clock("mono");
 	for (i in 1:300) p1.sampleIndividuals(1000000, replace=T, migrant=F);
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// summarize results
 	catn("### NO SUMMARY ###");

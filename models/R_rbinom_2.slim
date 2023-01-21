@@ -6,6 +6,8 @@
 
 initialize() { }
 1 early() {
+	start = clock("mono");
 	for (i in 1:50)
 		x = rbinom(10000000, 5, 0.2);
+	catn("TEST TIME: " + (clock("mono") - start));
 }

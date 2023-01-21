@@ -9,8 +9,10 @@ initialize() { }
 	o = runif(10000000, 0, 1000);			// known nonnegative
 	x = o * (rdunif(10000000) * 2 - 1);	// flip half the signs
 	
+	start = clock("mono");
 	for (i in 1:3000)
 		y = abs(x);
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// test only the last one, to avoid overhead
 	if (identical(o, y))

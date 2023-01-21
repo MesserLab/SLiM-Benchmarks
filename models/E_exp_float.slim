@@ -9,8 +9,10 @@ initialize() { }
 	x = runif(10000000, -100, 100);
 	o = E ^ x;
 	
+	start = clock("mono");
 	for (i in 1:150)
 		y = exp(x);
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// test only the last one, to avoid overhead
 	// we test percent error, since the absolute error can be huge

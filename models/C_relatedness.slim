@@ -15,9 +15,9 @@ initialize() {
 	inds = p1.individuals;
 	focalInd = inds[0];
 	
-	start = clock();
+	start = clock("mono");
 	for (i in 1:150) focalInd.relatedness(inds);
-	catn("time for parallelizable fraction: " + (clock() - start));
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// summarize results
 	catn("### NO SUMMARY ###");

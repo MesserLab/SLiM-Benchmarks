@@ -7,7 +7,10 @@
 initialize() { }
 1 early() {
 	y = 1.0:100000000;
+	
+	start = clock("mono");
 	x = sapply(1:100, "sum(y);");
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// summarize results
 	first_x = x[0];

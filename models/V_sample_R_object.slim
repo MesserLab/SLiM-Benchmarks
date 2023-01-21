@@ -9,8 +9,10 @@ initialize() { }
 	x = sapply(0:1000, "Dictionary('a', applyValue);");
 	o = sample(x, 10000000, replace=T);
 	
+	start = clock("mono");
 	for (i in 1:100)
 		y = sample(x, 10000000, replace=T);
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// test only the last one, to avoid overhead
 	if (abs(mean(o.getValue("a")) - mean(y.getValue("a"))) < 0.5)

@@ -10,8 +10,10 @@ initialize() { }
 	pos = rdunif(10000000, min=0, max=999);
 	x = table[pos];
 	
+	start = clock("mono");
 	for (i in 1:100)
 		y = match(x, table);
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// test only the last one, to avoid overhead
 	if (identical(pos, y))

@@ -18,7 +18,9 @@ initialize() {
 	
 	y = p1.pointReflected(points);
 	
+	start = clock("mono");
 	for (i in 1:150) p1.pointReflected(points);
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// summarize results
 	if (identical(x, y))

@@ -18,7 +18,9 @@ initialize() {
 	maxID = max(inds.pedigreeID);
 	ids = rdunif(1000000, minID, maxID + 1000000);
 	
+	start = clock("mono");
 	for (i in 1:100) sim.individualsWithPedigreeIDs(ids);
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// summarize results
 	catn("### NO SUMMARY ###");

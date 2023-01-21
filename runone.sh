@@ -89,14 +89,15 @@ if ! [ -d ${outdir} ] ; then
 fi
 
 
-# Run the replicates
+# Run the replicates; "test" time is wall clock time measured by the test itself
 cpuregex='CPU time used: ([0-9.]+)'
 wallregex='Wall time used: ([0-9.]+)'
+testregex='TEST TIME: ([0-9.]+)'
 memregex='Peak memory usage: .* ([0-9.]+)MB'
 summaryregex='### (.*) ###'
 errorregex='\*\*\* (.*) \*\*\*'
 
-echo "cpu_secs, wall_secs, mem_MB, summary" > ${outfile}
+echo "cpu_secs, wall_secs, test_secs, mem_MB, summary" > ${outfile}
 
 for ((i=1;i<=replicates;i++)) ; do
     echo -n "."
@@ -114,11 +115,12 @@ for ((i=1;i<=replicates;i++)) ; do
     
     [[ ${output} =~ ${cpuregex} ]] && cpu=${BASH_REMATCH[1]}
     [[ ${output} =~ ${wallregex} ]] && wall=${BASH_REMATCH[1]}
+    [[ ${output} =~ ${testregex} ]] && test=${BASH_REMATCH[1]}
     [[ ${output} =~ ${memregex} ]] && mem=${BASH_REMATCH[1]}
     [[ ${output} =~ ${summaryregex} ]] && summary=${BASH_REMATCH[1]}
 
-    #echo "${cpu} seconds, ${wall} seconds, ${mem} MB, summary: ${summary}"
-    echo "${cpu}, ${wall}, ${mem}, \"${summary}\"" >> ${outfile}
+    #echo "${cpu} CPU seconds, ${wall} wall seconds, ${test} test seconds, ${mem} MB, summary: ${summary}"
+    echo "${cpu}, ${wall}, ${test}, ${mem}, \"${summary}\"" >> ${outfile}
     
     [[ ${summary} =~ ${errorregex} ]] && error=${BASH_REMATCH[1]}
     if [[ $error ]] ; then

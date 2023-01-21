@@ -8,6 +8,9 @@ initialize() { }
 1 early() {
 	size = rdunif(10000000, 4, 6);
 	prob = runif(10000000, 0.1, 0.3);
+	
+	start = clock("mono");
 	for (i in 1:30)
 		x = rbinom(10000000, size, prob);
+	catn("TEST TIME: " + (clock("mono") - start));
 }

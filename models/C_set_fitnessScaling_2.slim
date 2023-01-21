@@ -10,7 +10,9 @@ initialize() { }
 	inds = p1.individuals;
 	v = asFloat(seqAlong(inds));
 	
+	start = clock("mono");
 	for (i in 1:2000) inds.fitnessScaling = v;
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// summarize results
 	catn("### NO SUMMARY ###");

@@ -14,7 +14,7 @@ initialize() {
 	point = p1.pointUniform(1);
 	inds = p1.individuals;
 	
-	start = clock();
+	start = clock("mono");
 	for (i in 1:600) inds.setSpatialPosition(point);
-	catn("time for parallelizable fraction: " + (clock() - start));
+	catn("TEST TIME: " + (clock("mono") - start));
 }

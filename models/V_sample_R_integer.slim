@@ -9,8 +9,10 @@ initialize() { }
 	x = 0:10000;
 	o = sample(x, 10000000, replace=T);
 	
+	start = clock("mono");
 	for (i in 1:200)
 		y = sample(x, 10000000, replace=T);
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// test only the last one, to avoid overhead
 	if (abs(mean(o) - mean(y)) < 5.0)

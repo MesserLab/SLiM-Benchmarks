@@ -10,12 +10,20 @@ initialize() { }
 	x = sample(o, 2000000, replace=F);	// scrambled
 	
 	incorrect = 0;
+	totalTime = 0;
 	for (i in 1:100)
 	{
+		// We want to check every result for this test, so we time each iteration
+		start = clock("mono");
 		y = sort(x);
+		end = clock("mono");
+		totalTime = totalTime + (end - start);
+		
 		if (!identical(o, y))
 			incorrect = incorrect + 1;
 	}
+	
+	catn("TEST TIME: " + totalTime);
 	
 	// summarize results
 	if (incorrect == 0)

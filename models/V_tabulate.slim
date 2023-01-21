@@ -9,8 +9,10 @@ initialize() { }
 	values = rdunif(10000000, min=0, max=10000);
 	o = tabulate(values);
 	
+	start = clock("mono");
 	for (i in 1:1500)
 		y = tabulate(values);
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// test only the last one, to avoid overhead
 	if (identical(o, y))

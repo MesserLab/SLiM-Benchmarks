@@ -7,6 +7,9 @@
 initialize() { }
 1 early() {
 	mu = runif(10000000, 0.0, 100.0);
+	
+	start = clock("mono");
 	for (i in 1:30)
 		x = rnorm(10000000, mu, 5.0);
+	catn("TEST TIME: " + (clock("mono") - start));
 }

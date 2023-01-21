@@ -8,6 +8,9 @@ initialize() { }
 1 early() {
 	min = rdunif(10000000, 0, 10);
 	max = rdunif(10000000, 20, 50);
+	
+	start = clock("mono");
 	for (i in 1:60)
 		x = rdunif(10000000, min, max);
+	catn("TEST TIME: " + (clock("mono") - start));
 }

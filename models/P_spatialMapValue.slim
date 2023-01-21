@@ -1,8 +1,7 @@
 /*
-	P_setSpatialPosition_1.slim
+	P_spatialMapValue.slim
 	
-	This exercises the Individual method setSpatialPosition(),
-	setting the same point on each individual.
+	This exercises the Subpopulation method spatialMapValue()
 */
 
 initialize() {
@@ -19,7 +18,7 @@ initialize() {
 	
 	points = p1.pointUniform(10000000);
 	
-	start = clock();
+	start = clock("mono");
 	for (i in 1:50) p1.spatialMapValue("map", points);
-	catn("time for parallelizable fraction: " + (clock() - start));
+	catn("TEST TIME: " + (clock("mono") - start));
 }

@@ -10,8 +10,10 @@ initialize() { }
 	b = rdunif(10000000, -1000000000, 1000000000);
 	o = ifelse(a < b, a, b);
 	
+	start = clock("mono");
 	for (i in 1:2000)
 		y = pmin(a, b);
+	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// test only the last one, to avoid overhead
 	if (identical(o, y))
