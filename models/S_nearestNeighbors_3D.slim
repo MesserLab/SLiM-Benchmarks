@@ -1,0 +1,33 @@
+/*
+	S_nearestNeighbors_3D.slim
+	
+	This exercises doing k-d tree neighbor searches.  This is the 3D case.
+	The maxDistance is set to produce about 27 million interactions, and
+	then the number of replicates is scaled to take about ten seconds.
+*/
+
+initialize() {
+	initializeSLiMOptions(dimensionality="xyz");
+	initializeInteractionType(1, "xyz", reciprocal=T, maxDistance=0.50);
+	i1.setInteractionFunction("f", 1.0);
+}
+1 late() {
+	sim.addSubpop("p1", 10000);
+	
+	inds = p1.individuals;
+	inds.setSpatialPosition(p1.pointUniform(p1.individualCount));
+	
+	i1.evaluate(p1);
+	
+	start = clock("mono");
+	x = sapply(1:15, "i1.nearestNeighbors(inds, count=1e6, returnDict=T);");
+	catn("TEST TIME: " + (clock("mono") - start));
+	
+	// summarize results
+	first_x = x[0];
+	all_equal = all(sapply(x, "first_x.identicalContents(applyValue);"));
+	if (all_equal)
+		catn("### ALL EQUAL (" + length(x) + ") ###");
+	else
+		catn("### *** INCONSISTENT *** " + mean(x) + " (" + length(x) + ") *** ###");
+}
