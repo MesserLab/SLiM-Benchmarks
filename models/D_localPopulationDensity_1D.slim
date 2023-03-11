@@ -1,16 +1,18 @@
 /*
-	S_clippedIntegral_1D.slim
+	D_localPopulationDensity_1D.slim
 	
-	This exercises querying with clippedIntegral() in the 1D case.
+	This exercises querying with localPopulationDensity(), in 1D.
+	The maxDistance is set to produce about 27 million interactions, and
+	then the number of replicates is scaled to take about ten seconds.
 */
 
 initialize() {
 	initializeSLiMOptions(dimensionality="x");
 	initializeInteractionType(1, "x", reciprocal=T, maxDistance=0.15);
-	i1.setInteractionFunction("n", 1.0, 0.05);
+	i1.setInteractionFunction("n", 1.0, 0.15);
 }
 1 late() {
-	sim.addSubpop("p1", 1000000);
+	sim.addSubpop("p1", 10000);
 	
 	inds = p1.individuals;
 	inds.setSpatialPosition(p1.pointUniform(p1.individualCount));
@@ -18,7 +20,7 @@ initialize() {
 	i1.evaluate(p1);
 	
 	start = clock("mono");
-	x = sapply(1:750, "sum(i1.clippedIntegral(inds));");
+	x = sapply(1:45, "sum(i1.localPopulationDensity(inds));");
 	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// summarize results

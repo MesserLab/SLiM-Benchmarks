@@ -1,14 +1,14 @@
 /*
-	S_neighborCount_2D.slim
+	D_neighborCount_3D.slim
 	
-	This exercises doing k-d tree neighbor searches.  This is the 2D case.
+	This exercises doing k-d tree neighbor searches.  This is the 3D case.
 	The maxDistance is set to produce about 27 million interactions, and
 	then the number of replicates is scaled to take about ten seconds.
 */
 
 initialize() {
-	initializeSLiMOptions(dimensionality="xy");
-	initializeInteractionType(1, "xy", reciprocal=T, maxDistance=0.35);
+	initializeSLiMOptions(dimensionality="xyz");
+	initializeInteractionType(1, "xyz", reciprocal=T, maxDistance=0.50);
 	i1.setInteractionFunction("f", 1.0);
 }
 1 late() {
@@ -20,7 +20,7 @@ initialize() {
 	i1.evaluate(p1);
 	
 	start = clock("mono");
-	x = sapply(1:70, "sum(i1.neighborCount(inds));");
+	x = sapply(1:35, "sum(i1.neighborCount(inds));");
 	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// summarize results

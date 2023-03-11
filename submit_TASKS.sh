@@ -27,6 +27,17 @@ bash ./runmulti.sh C_set_fitnessScaling_1 ${REPS}
 bash ./runmulti.sh C_set_fitnessScaling_2 ${REPS}
 bash ./runmulti.sh C_sumOfMutationsOfType ${REPS}
 
+bash ./runmulti.sh D_clippedIntegral_1D ${REPS}
+bash ./runmulti.sh D_clippedIntegral_2D ${REPS}
+bash ./runmulti.sh D_interactingNeighborCount_1D ${REPS}
+bash ./runmulti.sh D_interactingNeighborCount_2D ${REPS}
+bash ./runmulti.sh D_interactingNeighborCount_3D ${REPS}
+bash ./runmulti.sh D_localPopulationDensity_1D ${REPS}
+bash ./runmulti.sh D_localPopulationDensity_2D ${REPS}
+bash ./runmulti.sh D_neighborCount_1D ${REPS}
+bash ./runmulti.sh D_neighborCount_2D ${REPS}
+bash ./runmulti.sh D_neighborCount_3D ${REPS}
+
 bash ./runmulti.sh E_abs_float ${REPS}
 bash ./runmulti.sh E_ceil ${REPS}
 bash ./runmulti.sh E_exp_float ${REPS}
@@ -102,25 +113,15 @@ bash ./runmulti.sh R_runif_1 ${REPS}
 bash ./runmulti.sh R_runif_2 ${REPS}
 bash ./runmulti.sh R_runif_3 ${REPS}
 
-bash ./runmulti.sh S_clippedIntegral_1D ${REPS}
-bash ./runmulti.sh S_clippedIntegral_2D ${REPS}
 bash ./runmulti.sh S_drawByStrength_1D ${REPS}
 bash ./runmulti.sh S_drawByStrength_2D ${REPS}
 bash ./runmulti.sh S_drawByStrength_3D ${REPS}
-bash ./runmulti.sh S_interactingNeighborCount_1D ${REPS}
-bash ./runmulti.sh S_interactingNeighborCount_2D ${REPS}
-bash ./runmulti.sh S_interactingNeighborCount_3D ${REPS}
-bash ./runmulti.sh S_localPopulationDensity_1D ${REPS}
-bash ./runmulti.sh S_localPopulationDensity_2D ${REPS}
 bash ./runmulti.sh S_nearestInteractingNeighbors_1D ${REPS}
 bash ./runmulti.sh S_nearestInteractingNeighbors_2D ${REPS}
 bash ./runmulti.sh S_nearestInteractingNeighbors_3D ${REPS}
 bash ./runmulti.sh S_nearestNeighbors_1D ${REPS}
 bash ./runmulti.sh S_nearestNeighbors_2D ${REPS}
 bash ./runmulti.sh S_nearestNeighbors_3D ${REPS}
-bash ./runmulti.sh S_neighborCount_1D ${REPS}
-bash ./runmulti.sh S_neighborCount_2D ${REPS}
-bash ./runmulti.sh S_neighborCount_3D ${REPS}
 bash ./runmulti.sh S_totalOfNeighborStrengths_1D ${REPS}
 bash ./runmulti.sh S_totalOfNeighborStrengths_2D ${REPS}
 bash ./runmulti.sh S_totalOfNeighborStrengths_3D ${REPS}

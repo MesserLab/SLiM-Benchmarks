@@ -1,7 +1,7 @@
 /*
-	S_interactingNeighborCount_2D.slim
+	D_localPopulationDensity_2D.slim
 	
-	This exercises building distance sparse vectors.  This is the 2D case.
+	This exercises querying with localPopulationDensity(), in 2D.
 	The maxDistance is set to produce about 27 million interactions, and
 	then the number of replicates is scaled to take about ten seconds.
 */
@@ -9,7 +9,7 @@
 initialize() {
 	initializeSLiMOptions(dimensionality="xy");
 	initializeInteractionType(1, "xy", reciprocal=T, maxDistance=0.35);
-	i1.setInteractionFunction("f", 1.0);
+	i1.setInteractionFunction("n", 1.0, 0.35);
 }
 1 late() {
 	sim.addSubpop("p1", 10000);
@@ -20,14 +20,14 @@ initialize() {
 	i1.evaluate(p1);
 	
 	start = clock("mono");
-	x = sapply(1:70, "sum(i1.interactingNeighborCount(inds));");
+	x = sapply(1:35, "sum(i1.localPopulationDensity(inds));");
 	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// summarize results
 	first_x = x[0];
-	all_equal = all(x == first_x);
-	if (all_equal)
-		catn("### ALL " + first_x + " (" + length(x) + ") ###");
+	max_diff = max(abs(x - first_x));
+	if (max_diff < 1e-7)
+		catn("### ALL " + first_x + " (" + length(x) + ", " + max_diff + ") ###");
 	else
-		catn("### *** INCONSISTENT *** " + mean(x) + " (" + length(x) + ") *** ###");
+		catn("### *** INCONSISTENT *** " + max_diff + " (" + length(x) + ") *** ###");
 }

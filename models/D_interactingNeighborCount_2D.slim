@@ -1,14 +1,14 @@
 /*
-	S_interactingNeighborCount_3D.slim
+	D_interactingNeighborCount_2D.slim
 	
-	This exercises building distance sparse vectors.  This is the 3D case.
+	This exercises building distance sparse vectors.  This is the 2D case.
 	The maxDistance is set to produce about 27 million interactions, and
 	then the number of replicates is scaled to take about ten seconds.
 */
 
 initialize() {
-	initializeSLiMOptions(dimensionality="xyz");
-	initializeInteractionType(1, "xyz", reciprocal=T, maxDistance=0.50);
+	initializeSLiMOptions(dimensionality="xy");
+	initializeInteractionType(1, "xy", reciprocal=T, maxDistance=0.35);
 	i1.setInteractionFunction("f", 1.0);
 }
 1 late() {
@@ -20,7 +20,7 @@ initialize() {
 	i1.evaluate(p1);
 	
 	start = clock("mono");
-	x = sapply(1:35, "sum(i1.interactingNeighborCount(inds));");
+	x = sapply(1:70, "sum(i1.interactingNeighborCount(inds));");
 	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// summarize results

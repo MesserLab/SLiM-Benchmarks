@@ -1,12 +1,12 @@
 /*
-	S_clippedIntegral_2D.slim
+	D_clippedIntegral_1D.slim
 	
-	This exercises querying with clippedIntegral() in the 2D case.
+	This exercises querying with clippedIntegral() in the 1D case.
 */
 
 initialize() {
-	initializeSLiMOptions(dimensionality="xy");
-	initializeInteractionType(1, "xy", reciprocal=T, maxDistance=0.15);
+	initializeSLiMOptions(dimensionality="x");
+	initializeInteractionType(1, "x", reciprocal=T, maxDistance=0.15);
 	i1.setInteractionFunction("n", 1.0, 0.05);
 }
 1 late() {
@@ -18,7 +18,7 @@ initialize() {
 	i1.evaluate(p1);
 	
 	start = clock("mono");
-	x = sapply(1:600, "sum(i1.clippedIntegral(inds));");
+	x = sapply(1:750, "sum(i1.clippedIntegral(inds));");
 	catn("TEST TIME: " + (clock("mono") - start));
 	
 	// summarize results
