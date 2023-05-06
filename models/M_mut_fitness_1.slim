@@ -6,7 +6,7 @@
 
 initialize() {
 	initializeSLiMModelType("nonWF");
-	initializeSLiMOptions(mutationRuns=128);
+	initializeSLiMOptions(mutationRuns=96);
 	
 	// beneficial mutations make no difference since fitness is already 1.0
 	initializeMutationType("m1", 0.5, "f", 0.00001);
