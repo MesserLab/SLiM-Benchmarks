@@ -17,7 +17,7 @@ initialize() {
 	ids = rdunif(1000000, minID, maxID);
 	
 	start = clock("mono");
-	for (i in 1:100) sim.individualsWithPedigreeIDs(ids);
+	for (i in 1:150) sim.individualsWithPedigreeIDs(ids);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	
 	// summarize results

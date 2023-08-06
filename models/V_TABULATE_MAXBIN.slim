@@ -11,7 +11,7 @@ initialize() { }
 	_startBenchmark("TABULATE_MAXBIN");
 	
 	start = clock("mono");
-	for (i in 1:1500)
+	for (i in 1:3000)
 		y = tabulate(values);
 	
 	// test only the last one, to avoid overhead

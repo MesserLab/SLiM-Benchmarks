@@ -1,5 +1,7 @@
 /*
-	This exercises nonWF deferred reproduction with typical parameters
+	This exercises survival evaluation, using very slow turnover
+	of a population with overlapping generations and with
+	no genetics.
 */
 
 initialize() {
@@ -7,18 +9,20 @@ initialize() {
 	_startBenchmark("SURVIVAL");
 	
 	initializeSLiMModelType("nonWF");
-	defineConstant("K", 10000);
+	defineConstant("K", 10000000);
 }
-reproduction() {
-	subpop.addCrossed(individual, subpop.sampleIndividuals(1), count=10);
+2 reproduction() {
+	// make one offspring and stop
+	subpop.addCloned(individual);
+	self.active = 0;
 }
 1 early() {
 	sim.addSubpop("p1", K);
 }
 early() {
-	p1.fitnessScaling = K / p1.individualCount;
+	p1.fitnessScaling = 0.99999999;
 }
-5000 late() {
+100 late() {
 	//catn("elapsed: " + _stopBenchmark());
 
 	// summarize results

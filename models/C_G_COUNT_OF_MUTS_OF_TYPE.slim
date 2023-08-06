@@ -25,4 +25,7 @@ mutationEffect(m2) { return 1.0; }
 	start = clock("mono");
 	for (i in 1:3) counts = genomes.countOfMutationsOfType(m2);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
+
+	// summarize results
+	catn("### NO SUMMARY ###");
 }

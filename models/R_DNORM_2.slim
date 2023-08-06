@@ -9,7 +9,10 @@ initialize() { }
 	mu = runif(10000000, 0.0, 1.0);
 	
 	start = clock("mono");
-	for (i in 1:70)
+	for (i in 1:100)
 		y = dnorm(x, mu, sigma);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
+
+	// summarize results
+	catn("### NO SUMMARY ###");
 }

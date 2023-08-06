@@ -12,4 +12,7 @@ initialize() {
 	start = clock("mono");
 	for (i in 1:200) p1.pointUniform(10000000);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
+
+	// summarize results
+	catn("### NO SUMMARY ###");
 }

@@ -18,7 +18,10 @@ initialize() {
 	i1.evaluate(p1);
 	
 	start = clock("mono");
-	for (i in 1:10)
+	for (i in 1:50)
 		i1.drawByStrength(inds, count=100, returnDict=T);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
+
+	// summarize results
+	catn("### NO SUMMARY ###");
 }

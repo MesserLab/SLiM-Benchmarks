@@ -5,7 +5,7 @@
 initialize() {
 	// This model uses an internal benchmark
 	_startBenchmark("UNIQUE_MUTRUNS");
-	initializeSLiMOptions(mutationRuns=512);
+	initializeSLiMOptions(mutationRuns=240);
 	initializeMutationRate(1e-5);
 	initializeMutationType("m1", 0.5, "f", 0.0);
 	initializeGenomicElementType("g1", m1, 1.0);
@@ -13,10 +13,10 @@ initialize() {
 	initializeRecombinationRate(1e-8);
 }
 1 early() {
-	sim.addSubpop("p1", 100);
+	sim.addSubpop("p1", 500);
 }
 100 early() {
-	p1.setSubpopulationSize(100000);
+	p1.setSubpopulationSize(500000);
 }
 100 late() {
 	//catn("elapsed: " + _stopBenchmark());

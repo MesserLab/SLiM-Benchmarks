@@ -9,7 +9,7 @@ initialize() { }
 	o = ifelse(a < b, a, b);
 	
 	start = clock("mono");
-	for (i in 1:200)
+	for (i in 1:1500)
 		y = pmin(a, b);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	

@@ -17,7 +17,7 @@ initialize() {
 	y = p1.pointStopped(points);
 	
 	start = clock("mono");
-	for (i in 1:300) p1.pointStopped(points);
+	for (i in 1:500) p1.pointStopped(points);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	
 	// summarize results

@@ -17,7 +17,7 @@ initialize() {
 	y = p1.pointReflected(points);
 	
 	start = clock("mono");
-	for (i in 1:150) p1.pointReflected(points);
+	for (i in 1:75) p1.pointReflected(points);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	
 	// summarize results

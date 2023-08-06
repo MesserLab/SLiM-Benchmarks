@@ -1,9 +1,11 @@
 /*
 	A simulation with tree-sequence recording with lots of recombination but no mutation,
-	with frequent simplification.  This exercises simplification, primarily.
+	with frequent simplification.  This exercises simplify's core algorithm.
 */
 
 initialize() {
+	_startBenchmark("SIMPLIFY_CORE");
+	
 	initializeTreeSeq(simplificationInterval=5);
 	initializeMutationRate(0);
 	initializeMutationType("m1", 0.5, "f", 0.0);
@@ -13,7 +15,10 @@ initialize() {
 }
 
 1 early() {
-	sim.addSubpop("p1", 100000);
+	sim.addSubpop("p1", 10000);
 }
 
-50 late() { }
+50 late() {
+	// summarize results
+	catn("### NO SUMMARY ###");
+}

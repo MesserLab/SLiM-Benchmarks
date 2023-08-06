@@ -18,8 +18,8 @@ REPS=5
 bash ./runmulti.sh C_CONTAINS_MARKER_MUT ${REPS}
 bash ./runmulti.sh C_G_COUNT_OF_MUTS_OF_TYPE ${REPS}
 bash ./runmulti.sh C_I_COUNT_OF_MUTS_OF_TYPE ${REPS}
-bash ./runmulti.sh C_INDS_W_PEDIGREE_IDS ${REPS}
 bash ./runmulti.sh C_INDS_W_PEDIGREE_IDS_misses ${REPS}
+bash ./runmulti.sh C_INDS_W_PEDIGREE_IDS ${REPS}
 bash ./runmulti.sh C_RELATEDNESS ${REPS}
 bash ./runmulti.sh C_SAMPLE_INDIVIDUALS_1 ${REPS}
 bash ./runmulti.sh C_SAMPLE_INDIVIDUALS_2 ${REPS}
@@ -52,34 +52,6 @@ bash ./runmulti.sh E_SUM_INTEGER ${REPS}
 bash ./runmulti.sh E_SUM_LOGICAL ${REPS}
 bash ./runmulti.sh E_TRUNC ${REPS}
 
-bash ./runmulti.sh X_MAX_INT ${REPS}
-bash ./runmulti.sh X_MAX_FLOAT ${REPS}
-bash ./runmulti.sh X_MIN_INT ${REPS}
-bash ./runmulti.sh X_MIN_FLOAT ${REPS}
-bash ./runmulti.sh X_PMAX_INT_1 ${REPS}
-bash ./runmulti.sh X_PMAX_INT_2 ${REPS}
-bash ./runmulti.sh X_PMAX_FLOAT_1 ${REPS}
-bash ./runmulti.sh X_PMAX_FLOAT_2 ${REPS}
-bash ./runmulti.sh X_PMIN_INT_1 ${REPS}
-bash ./runmulti.sh X_PMIN_INT_2 ${REPS}
-bash ./runmulti.sh X_PMIN_FLOAT_1 ${REPS}
-bash ./runmulti.sh X_PMIN_FLOAT_2 ${REPS}
-
-bash ./runmulti.sh V_MATCH_INT ${REPS}
-bash ./runmulti.sh V_MATCH_FLOAT ${REPS}
-bash ./runmulti.sh V_MATCH_STRING ${REPS}
-bash ./runmulti.sh V_MATCH_OBJECT ${REPS}
-bash ./runmulti.sh V_SAMPLE_INDEX ${REPS}
-bash ./runmulti.sh V_SAMPLE_R_INT ${REPS}
-bash ./runmulti.sh V_SAMPLE_R_FLOAT ${REPS}
-bash ./runmulti.sh V_SAMPLE_R_OBJECT ${REPS}
-bash ./runmulti.sh V_SAMPLE_WR_INT ${REPS}
-bash ./runmulti.sh V_SAMPLE_WR_FLOAT ${REPS}
-bash ./runmulti.sh V_SAMPLE_WR_OBJECT ${REPS}
-bash ./runmulti.sh V_SORT_INTEGER ${REPS}
-bash ./runmulti.sh V_TABULATE_MAXBIN ${REPS}
-bash ./runmulti.sh V_TABULATE ${REPS}
-
 bash ./runmulti.sh I_AGE_INCR ${REPS}
 bash ./runmulti.sh I_DEFERRED_REPRO ${REPS}
 bash ./runmulti.sh I_FITNESS_ASEX_1 ${REPS}
@@ -89,20 +61,19 @@ bash ./runmulti.sh I_FITNESS_SEX_1 ${REPS}
 bash ./runmulti.sh I_FITNESS_SEX_2 ${REPS}
 bash ./runmulti.sh I_FITNESS_SEX_3 ${REPS}
 bash ./runmulti.sh I_MIGRANT_CLEAR ${REPS}
+bash ./runmulti.sh I_MUT_FREE ${REPS}
+bash ./runmulti.sh I_MUT_TALLY ${REPS}
+bash ./runmulti.sh I_MUTRUN_FREE ${REPS}
 bash ./runmulti.sh I_PARENTS_CLEAR ${REPS}
+bash ./runmulti.sh I_SIMPLIFY_CORE ${REPS}
+bash ./runmulti.sh I_SIMPLIFY_SORT ${REPS}
 bash ./runmulti.sh I_SURVIVAL ${REPS}
 bash ./runmulti.sh I_UNIQUE_MUTRUNS ${REPS}
 bash ./runmulti.sh I_WF_REPRO ${REPS}
 
 bash ./runmulti.sh M_neutral_WF ${REPS}
 bash ./runmulti.sh M_nonneutral_WF ${REPS}
-bash ./runmulti.sh M_mut_fitness_1 ${REPS}
-bash ./runmulti.sh M_mut_fitness_2 ${REPS}
-bash ./runmulti.sh M_mut_tallies ${REPS}
-bash ./runmulti.sh M_survival_1 ${REPS}
-bash ./runmulti.sh M_survival_2 ${REPS}
 bash ./runmulti.sh M_treeseq_edges ${REPS}
-bash ./runmulti.sh M_treeseq_simplify ${REPS}
 bash ./runmulti.sh M_turnover_nonWF ${REPS}
 bash ./runmulti.sh M_turnover_WF ${REPS}
 
@@ -160,6 +131,34 @@ bash ./runmulti.sh S_NEARESTNEIGH_3d ${REPS}
 bash ./runmulti.sh S_TOTNEIGHSTRENGTH_1d ${REPS}
 bash ./runmulti.sh S_TOTNEIGHSTRENGTH ${REPS}
 bash ./runmulti.sh S_TOTNEIGHSTRENGTH_3d ${REPS}
+
+bash ./runmulti.sh V_MATCH_INT ${REPS}
+bash ./runmulti.sh V_MATCH_FLOAT ${REPS}
+bash ./runmulti.sh V_MATCH_STRING ${REPS}
+bash ./runmulti.sh V_MATCH_OBJECT ${REPS}
+bash ./runmulti.sh V_SAMPLE_INDEX ${REPS}
+bash ./runmulti.sh V_SAMPLE_R_INT ${REPS}
+bash ./runmulti.sh V_SAMPLE_R_FLOAT ${REPS}
+bash ./runmulti.sh V_SAMPLE_R_OBJECT ${REPS}
+bash ./runmulti.sh V_SAMPLE_WR_INT ${REPS}
+bash ./runmulti.sh V_SAMPLE_WR_FLOAT ${REPS}
+bash ./runmulti.sh V_SAMPLE_WR_OBJECT ${REPS}
+bash ./runmulti.sh V_SORT_INTEGER ${REPS}
+bash ./runmulti.sh V_TABULATE_MAXBIN ${REPS}
+bash ./runmulti.sh V_TABULATE ${REPS}
+
+bash ./runmulti.sh X_MAX_INT ${REPS}
+bash ./runmulti.sh X_MAX_FLOAT ${REPS}
+bash ./runmulti.sh X_MIN_INT ${REPS}
+bash ./runmulti.sh X_MIN_FLOAT ${REPS}
+bash ./runmulti.sh X_PMAX_INT_1 ${REPS}
+bash ./runmulti.sh X_PMAX_INT_2 ${REPS}
+bash ./runmulti.sh X_PMAX_FLOAT_1 ${REPS}
+bash ./runmulti.sh X_PMAX_FLOAT_2 ${REPS}
+bash ./runmulti.sh X_PMIN_INT_1 ${REPS}
+bash ./runmulti.sh X_PMIN_INT_2 ${REPS}
+bash ./runmulti.sh X_PMIN_FLOAT_1 ${REPS}
+bash ./runmulti.sh X_PMIN_FLOAT_2 ${REPS}
 
 #bash ./runmulti.sh Z_runner_test ${REPS}
 

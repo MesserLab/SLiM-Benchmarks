@@ -1,13 +1,17 @@
 /*
-	A simple nonWF model designed to exercise FitnessOfParentWithGenomeIndices_NoCallbacks() (asexual).
+	A simple nonWF model designed to exercise mutation tallying.
+	This benchmarks mutation tallying using mutation runs.
+	A nonWF model is used so we can coast without reproduction.
 */
 
 initialize() {
-	initializeSLiMModelType("nonWF");
-	initializeSLiMOptions(mutationRuns=96);
+	_startBenchmark("MUT_TALLY");
 	
-	// beneficial mutations make no difference since fitness is already 1.0
-	initializeMutationType("m1", 0.5, "f", 0.00001);
+	initializeSLiMModelType("nonWF");
+	initializeSLiMOptions(mutationRuns=240);
+	
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	m1.convertToSubstitution = T;
 	
 	initializeGenomicElementType("g1", m1, 1.0);
 	initializeGenomicElement(g1, 0, 1e9-1);
@@ -25,7 +29,7 @@ initialize() {
 	subpop.addCrossed(individual, subpop.sampleIndividuals(1));
 }
 
-// scale up to 1000 individuals; at about 5.5 seconds we're done with setup
+// scale up to 1000 individuals
 11 first() {
 	sim.chromosome.setMutationRate(0.0);
 }
@@ -41,4 +45,7 @@ initialize() {
 }
 
 // then coast, with no reproduction, long enough for this stage to dominate
-15 late() { }
+200 late() {
+	// summarize results
+	catn("### NO SUMMARY ###");
+}

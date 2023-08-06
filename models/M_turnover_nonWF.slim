@@ -6,19 +6,11 @@
 initialize() {
 	initializeSLiMModelType("nonWF");
 	defineConstant("K", 1000000);	// carrying capacity
-	
-	initializeMutationType("m1", 0.5, "f", 0.0);
-	m1.convertToSubstitution = T;
-	
-	initializeGenomicElementType("g1", m1, 1.0);
-	initializeGenomicElement(g1, 0, 0);
-	initializeMutationRate(0);
-	initializeRecombinationRate(0);
 }
 
 reproduction() {
 	for (ind in p1.individuals)
-		subpop.addCrossed(individual, individual);
+		subpop.addCrossed(ind, ind);
 	self.active = 0;
 }
 
@@ -31,4 +23,7 @@ early() {
 	inds[inds.age > 0].fitnessScaling = 0;
 }
 
-100 late() { }
+50 late() {
+	// summarize results
+	catn("### NO SUMMARY ###");
+}

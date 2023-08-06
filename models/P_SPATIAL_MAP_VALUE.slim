@@ -17,6 +17,9 @@ initialize() {
 	points = p1.pointUniform(10000000);
 	
 	start = clock("mono");
-	for (i in 1:50) p1.spatialMapValue("map", points);
+	for (i in 1:100) p1.spatialMapValue("map", points);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
+
+	// summarize results
+	catn("### NO SUMMARY ###");
 }

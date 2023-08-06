@@ -1,0 +1,23 @@
+/*
+	A simple nonWF model designed to exercise mutation freeing after tallying.
+	It's hard to concoct a model that really stresses this!
+*/
+
+initialize() {
+	_startBenchmark("MUTRUN_FREE");
+	initializeSLiMOptions(mutationRuns=240);
+	initializeMutationRate(1e-7);
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, 1e9 - 1);
+	initializeRecombinationRate(0.0);
+}
+1 early() {
+	sim.addSubpop("p1", 5);
+}
+100000 late() {
+	//catn("elapsed: " + _stopBenchmark());
+
+	// summarize results
+	catn("### NO SUMMARY ###");
+}

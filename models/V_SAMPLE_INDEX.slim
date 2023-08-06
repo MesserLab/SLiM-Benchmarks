@@ -1,16 +1,16 @@
 /*
 	This exercises Eidos function sample(integer x, integer$ size, replace=T, weights=NULL)
-	It benchmarks specifically the index-building stage
+	It benchmarks specifically the index-building stage, used for sampling without replacement
 */
 
 initialize() { }
 1 early() {
-	x = 0:10000;
+	x = 0:10000000;
 	
 	_startBenchmark("SAMPLE_INDEX");
 	
-	for (i in 1:200)
-		y = sample(x, 10000000, replace=T);
+	for (i in 1:5000)
+		y = sample(x, 3, replace=F);
 	
 	// summarize results
 	catn("### NO SUMMARY ###");

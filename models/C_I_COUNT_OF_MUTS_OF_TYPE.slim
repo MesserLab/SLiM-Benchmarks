@@ -23,6 +23,9 @@ mutationEffect(m2) { return 1.0; }
 	inds = sim.subpopulations.individuals;
 	
 	start = clock("mono");
-	for (i in 1:5) counts = inds.countOfMutationsOfType(m2);
+	for (i in 1:4) counts = inds.countOfMutationsOfType(m2);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
+
+	// summarize results
+	catn("### NO SUMMARY ###");
 }

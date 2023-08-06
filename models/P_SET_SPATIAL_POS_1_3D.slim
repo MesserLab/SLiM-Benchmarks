@@ -13,6 +13,9 @@ initialize() {
 	inds = p1.individuals;
 	
 	start = clock("mono");
-	for (i in 1:600) inds.setSpatialPosition(point);
+	for (i in 1:1000) inds.setSpatialPosition(point);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
+
+	// summarize results
+	catn("### NO SUMMARY ###");
 }

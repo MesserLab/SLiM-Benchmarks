@@ -1,6 +1,7 @@
 /*
 	This exercises fitness calculations with:
 		individual fitnessScaling and NO non-neutral mutations
+	A nonWF model is used so we can coast without reproduction.
 */
 
 initialize() {
@@ -8,25 +9,20 @@ initialize() {
 	_startBenchmark("FITNESS_SEX_1");
 	
 	initializeSLiMModelType("nonWF");
-	defineConstant("K", 10000);
+	defineConstant("K", 1000000);
 	
-	initializeMutationRate(1e-7);
-	initializeMutationType("m1", 0.5, "f", 0.0);
-	initializeGenomicElementType("g1", m1, 1.0);
-	initializeGenomicElement(g1, 0, 999999);
-	initializeRecombinationRate(1e-8);
 	initializeSex("A");
 }
-reproduction(NULL, "F") {
-	subpop.addCrossed(individual, subpop.sampleIndividuals(1, sex="M"), count=200);
+reproduction() {
+	self.active = 0;
 }
 1 early() {
 	sim.addSubpop("p1", K);
 }
 early() {
-	p1.individuals.fitnessScaling = K / p1.individualCount;
+	p1.individuals.fitnessScaling = 1.01;
 }
-100 late() {
+500 late() {
 	//catn("elapsed: " + _stopBenchmark());
 
 	// summarize results

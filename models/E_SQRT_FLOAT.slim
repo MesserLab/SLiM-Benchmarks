@@ -8,7 +8,7 @@ initialize() { }
 	x = o ^ 2;
 	
 	start = clock("mono");
-	for (i in 1:400)
+	for (i in 1:2500)
 		y = sqrt(x);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	

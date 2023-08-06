@@ -17,7 +17,7 @@ initialize() {
 	y = p1.pointPeriodic(points);
 	
 	start = clock("mono");
-	for (i in 1:150) p1.pointPeriodic(points);
+	for (i in 1:300) p1.pointPeriodic(points);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	
 	// summarize results

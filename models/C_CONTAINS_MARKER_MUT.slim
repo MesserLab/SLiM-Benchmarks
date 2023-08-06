@@ -31,6 +31,9 @@ mutationEffect(m2) { return 1.0; }
 	genomes = sim.subpopulations.genomes;
 	
 	start = clock("mono");
-	for (i in 1:400) counts = genomes.containsMarkerMutation(MUT.mutationType, MUT.position, returnMutation=F);
+	for (i in 1:150) counts = genomes.containsMarkerMutation(MUT.mutationType, MUT.position, returnMutation=F);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
+
+	// summarize results
+	catn("### NO SUMMARY ###");
 }

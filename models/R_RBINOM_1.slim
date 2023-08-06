@@ -5,7 +5,10 @@
 initialize() { }
 1 early() {
 	start = clock("mono");
-	for (i in 1:500)
+	for (i in 1:1000)
 		x = rbinom(10000000, 1, 0.5);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
+
+	// summarize results
+	catn("### NO SUMMARY ###");
 }

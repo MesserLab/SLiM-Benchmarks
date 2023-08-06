@@ -13,7 +13,7 @@ initialize() {
 	maxID = max(inds.pedigreeID);
 	
 	start = clock("mono");
-	for (i in 1:300) p1.sampleIndividuals(1000000, replace=T, migrant=F);
+	for (i in 1:600) p1.sampleIndividuals(1000000, replace=T, migrant=F);
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	
 	// summarize results

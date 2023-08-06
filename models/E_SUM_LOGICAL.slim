@@ -7,7 +7,7 @@ initialize() { }
 	y = runif(10000000) < 0.5;
 	
 	start = clock("mono");
-	x = sapply(1:5000, "sum(y);");
+	x = sapply(1:10000, "sum(y);");
 	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	
 	// summarize results
