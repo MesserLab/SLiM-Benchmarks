@@ -7,5 +7,5 @@ initialize() { }
 	start = clock("mono");
 	for (i in 1:500)
 		x = rdunif(10000000);
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 }

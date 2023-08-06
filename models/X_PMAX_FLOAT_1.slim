@@ -10,7 +10,7 @@ initialize() { }
 	start = clock("mono");
 	for (i in 1:1200)
 		y = pmax(x, 1703.0);
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	
 	// test only the last one, to avoid overhead
 	if (identical(o, y))

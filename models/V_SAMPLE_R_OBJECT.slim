@@ -10,7 +10,7 @@ initialize() { }
 	start = clock("mono");
 	for (i in 1:100)
 		y = sample(x, 10000000, replace=T);
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	
 	// test only the last one, to avoid overhead
 	if (abs(mean(o.getValue("a")) - mean(y.getValue("a"))) < 0.5)

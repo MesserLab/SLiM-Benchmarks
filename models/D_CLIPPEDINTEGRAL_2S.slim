@@ -17,7 +17,7 @@ initialize() {
 	
 	start = clock("mono");
 	x = sapply(1:600, "sum(i1.clippedIntegral(inds));");
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	
 	// summarize results
 	first_x = x[0];

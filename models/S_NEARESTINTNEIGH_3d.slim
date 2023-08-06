@@ -19,7 +19,7 @@ initialize() {
 	
 	start = clock("mono");
 	x = sapply(1:15, "i1.nearestInteractingNeighbors(inds, count=1e6, returnDict=T);");
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	
 	// summarize results
 	first_x = x[0];

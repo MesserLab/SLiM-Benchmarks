@@ -30,9 +30,7 @@ mutationEffect(m2) { return 1.0; }
 200 late() {
 	genomes = sim.subpopulations.genomes;
 	
-	// this takes longer than most of the tests, but the setup
-	// takes a long time (~2 s), so... Amdahl's Law
 	start = clock("mono");
 	for (i in 1:400) counts = genomes.containsMarkerMutation(MUT.mutationType, MUT.position, returnMutation=F);
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 }

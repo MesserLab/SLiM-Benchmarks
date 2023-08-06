@@ -22,9 +22,7 @@ mutationEffect(m2) { return 1.0; }
 200 late() {
 	inds = sim.subpopulations.individuals;
 	
-	// this takes longer than most of the tests, but the setup
-	// takes a long time (~2 s), so... Amdahl's Law
 	start = clock("mono");
 	for (i in 1:3) phenotypes = inds.sumOfMutationsOfType(m2);
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 }

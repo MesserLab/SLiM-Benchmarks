@@ -9,5 +9,5 @@ initialize() { }
 	start = clock("mono");
 	for (i in 1:150)
 		y = dnorm(x, 0.5, 1.5);
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 }

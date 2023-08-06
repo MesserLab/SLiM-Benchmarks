@@ -92,7 +92,7 @@ fi
 # Run the replicates; "test" time is wall clock time measured by the test itself
 cpuregex='CPU time used: ([0-9.]+)'
 wallregex='Wall time used: ([0-9.]+)'
-testregex='TEST TIME: ([0-9.]+)'
+testregex='Benchmark time: ([0-9.]+)'
 memregex='Peak memory usage: .* ([0-9.]+)MB'
 summaryregex='### (.*) ###'
 errorregex='\*\*\* (.*) \*\*\*'

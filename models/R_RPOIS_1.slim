@@ -7,5 +7,5 @@ initialize() { }
 	start = clock("mono");
 	for (i in 1:10)
 		x = rpois(10000000, 10.5);
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 }

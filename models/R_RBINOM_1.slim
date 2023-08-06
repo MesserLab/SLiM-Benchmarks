@@ -7,5 +7,5 @@ initialize() { }
 	start = clock("mono");
 	for (i in 1:500)
 		x = rbinom(10000000, 1, 0.5);
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 }

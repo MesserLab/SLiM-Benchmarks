@@ -12,7 +12,7 @@ initialize() { }
 	start = clock("mono");
 	for (i in 1:125)
 		y = match(x, table);
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	
 	// test only the last one, to avoid overhead
 	if (identical(pos, y))

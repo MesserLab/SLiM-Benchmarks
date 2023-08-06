@@ -14,5 +14,5 @@ initialize() {
 	
 	start = clock("mono");
 	for (i in 1:500) inds.setSpatialPosition(points);
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 }

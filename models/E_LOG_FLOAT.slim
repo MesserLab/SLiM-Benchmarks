@@ -10,7 +10,7 @@ initialize() { }
 	start = clock("mono");
 	for (i in 1:150)
 		y = log(x);
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	
 	// test only the last one, to avoid overhead
 	if (all(abs(o - y) < 1e-13))

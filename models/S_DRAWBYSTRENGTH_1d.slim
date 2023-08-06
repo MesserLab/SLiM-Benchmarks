@@ -20,5 +20,5 @@ initialize() {
 	start = clock("mono");
 	for (i in 1:15)
 		i1.drawByStrength(inds, count=100, returnDict=T);
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 }

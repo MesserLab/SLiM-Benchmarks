@@ -8,7 +8,7 @@ initialize() { }
 	
 	start = clock("mono");
 	x = sapply(1:5000, "sum(y);");
-	catn("TEST TIME: " + (clock("mono") - start));
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
 	
 	// summarize results
 	first_x = x[0];
