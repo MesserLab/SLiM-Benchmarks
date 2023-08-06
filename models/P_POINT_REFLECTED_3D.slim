@@ -1,0 +1,28 @@
+/*
+	This exercises the Subpopulation method pointReflected()
+*/
+
+initialize() {
+	initializeSLiMOptions(dimensionality="xyz");
+}
+1 late() {
+	sim.addSubpop("p1", 100);
+	p1.setSpatialBounds(c(0, 0, 0, 100, 100, 100));
+	points = runif(10000000 * 3, min=-20, max=120);
+	
+	x = p1.pointReflected(points);
+	meanx = mean(x);
+	//catn("mean coordinate: " + meanx);
+	
+	y = p1.pointReflected(points);
+	
+	start = clock("mono");
+	for (i in 1:150) p1.pointReflected(points);
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
+	
+	// summarize results
+	if (identical(x, y))
+		catn("### ALL " + mean(x) + " (" + length(x) + ") ###");
+	else
+		catn("### *** INCONSISTENT *** " + mean(x) + ", " + mean(y) + " (" + length(x) + ") *** ###");
+}

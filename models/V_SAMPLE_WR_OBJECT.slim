@@ -1,0 +1,21 @@
+/*
+	This exercises Eidos function sample(integer x, integer$ size, replace=T, weights=w)
+*/
+
+initialize() { }
+1 early() {
+	x = sapply(0:1000, "Dictionary('a', applyValue);");
+	w = runif(10000000, 0.99, 1.01);
+	o = sample(x, 10000000, replace=T, weights=w);
+	
+	start = clock("mono");
+	for (i in 1:100)
+		y = sample(x, 10000000, replace=T, weights=w);
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
+	
+	// test only the last one, to avoid overhead
+	if (abs(mean(o.getValue("a")) - mean(y.getValue("a"))) < 0.5)
+		catn("### CORRECT ###");
+	else
+		catn("### *** INCORRECT *** ###");
+}

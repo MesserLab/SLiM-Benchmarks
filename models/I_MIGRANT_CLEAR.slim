@@ -1,0 +1,22 @@
+/*
+	This exercises the clearing of the migrant flag at tick end
+*/
+
+initialize() {
+	initializeSLiMModelType("nonWF");
+	
+	// This model uses an internal benchmark
+	_startBenchmark("MIGRANT_CLEAR");
+}
+reproduction() {
+	self.active = 0;	// no reproduction
+}
+1 early() {
+	sim.addSubpop("p1", 1000000);
+}
+200 late() {
+	//catn("elapsed: " + _stopBenchmark());
+
+	// summarize results
+	catn("### NO SUMMARY ###");
+}

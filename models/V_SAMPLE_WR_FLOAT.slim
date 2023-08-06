@@ -1,0 +1,21 @@
+/*
+	This exercises Eidos function sample(float x, integer$ size, replace=T, weights=w)
+*/
+
+initialize() { }
+1 early() {
+	x = 0.0:10000;
+	w = runif(10000000, 0.99, 1.01);
+	o = sample(x, 10000000, replace=T, weights=w);
+	
+	start = clock("mono");
+	for (i in 1:200)
+		y = sample(x, 10000000, replace=T, weights=w);
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
+	
+	// test only the last one, to avoid overhead
+	if (abs(mean(o) - mean(y)) < 5.0)
+		catn("### CORRECT ###");
+	else
+		catn("### *** INCORRECT *** ###");
+}

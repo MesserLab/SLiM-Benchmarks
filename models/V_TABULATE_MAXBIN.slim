@@ -1,18 +1,18 @@
 /*
 	This exercises Eidos function tabulate(integer bin)
-	Here we avoid the maxbin tabulation stage (measured separately)
+	It benchmarks specifically the maxbin tabulation stage
 */
 
 initialize() { }
 1 early() {
 	values = rdunif(10000000, min=0, max=10000);
-	maxbin = max(0, values);
-	o = tabulate(values, maxbin);
+	o = tabulate(values);
+	
+	_startBenchmark("TABULATE_MAXBIN");
 	
 	start = clock("mono");
 	for (i in 1:1500)
-		y = tabulate(values, maxbin);
-	catn("// ********** Benchmark time: " + (clock("mono") - start));
+		y = tabulate(values);
 	
 	// test only the last one, to avoid overhead
 	if (identical(o, y))

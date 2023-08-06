@@ -1,0 +1,17 @@
+/*
+	This exercises Eidos function sample(integer x, integer$ size, replace=T, weights=NULL)
+	It benchmarks specifically the index-building stage
+*/
+
+initialize() { }
+1 early() {
+	x = 0:10000;
+	
+	_startBenchmark("SAMPLE_INDEX");
+	
+	for (i in 1:200)
+		y = sample(x, 10000000, replace=T);
+	
+	// summarize results
+	catn("### NO SUMMARY ###");
+}

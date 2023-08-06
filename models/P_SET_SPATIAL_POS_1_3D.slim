@@ -1,0 +1,18 @@
+/*
+	This exercises the Individual method setSpatialPosition(),
+	setting the same point on each individual.
+*/
+
+initialize() {
+	initializeSLiMOptions(dimensionality="xyz");
+}
+1 late() {
+	sim.addSubpop("p1", 1000000);
+	p1.setSpatialBounds(c(0, 0, 0, 100, 100, 100));
+	point = p1.pointUniform(1);
+	inds = p1.individuals;
+	
+	start = clock("mono");
+	for (i in 1:600) inds.setSpatialPosition(point);
+	catn("// ********** Benchmark time: " + (clock("mono") - start));
+}

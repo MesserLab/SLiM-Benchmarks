@@ -1,0 +1,33 @@
+/*
+	This exercises fitness calculations with:
+		individual fitnessScaling and NO non-neutral mutations
+*/
+
+initialize() {
+	// This model uses an internal benchmark
+	_startBenchmark("FITNESS_ASEX_1");
+	
+	initializeSLiMModelType("nonWF");
+	defineConstant("K", 10000);
+	
+	initializeMutationRate(1e-7);
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, 999999);
+	initializeRecombinationRate(1e-8);
+}
+reproduction() {
+	subpop.addCrossed(individual, subpop.sampleIndividuals(1), count=100);
+}
+1 early() {
+	sim.addSubpop("p1", K);
+}
+early() {
+	p1.individuals.fitnessScaling = K / p1.individualCount;
+}
+100 late() {
+	//catn("elapsed: " + _stopBenchmark());
+
+	// summarize results
+	catn("### NO SUMMARY ###");
+}

@@ -1,0 +1,22 @@
+/*
+	This exercises the age increment at the end of nonWF ticks
+*/
+
+initialize() {
+	initializeSLiMModelType("nonWF");
+	
+	// This model uses an internal benchmark
+	_startBenchmark("AGE_INCR");
+}
+reproduction() {
+	self.active = 0;	// no reproduction
+}
+1 early() {
+	sim.addSubpop("p1", 1000000);
+}
+200 late() {
+	//catn("elapsed: " + _stopBenchmark());
+
+	// summarize results
+	catn("### NO SUMMARY ###");
+}

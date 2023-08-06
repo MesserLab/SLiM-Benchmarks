@@ -1,0 +1,32 @@
+/*
+	This exercises nonWF deferred reproduction with typical parameters
+*/
+
+initialize() {
+	// This model uses an internal benchmark
+	_startBenchmark("DEFERRED_REPRO");
+	
+	initializeSLiMModelType("nonWF");
+	defineConstant("K", 1000);
+	
+	initializeMutationRate(1e-7);
+	initializeMutationType("m1", 0.5, "f", 0.0).convertToSubstitution = T;
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, 999999);
+	initializeRecombinationRate(1e-8);
+}
+reproduction() {
+	subpop.addCrossed(individual, subpop.sampleIndividuals(1), count=10, defer=T);
+}
+1 early() {
+	sim.addSubpop("p1", K);
+}
+early() {
+	p1.fitnessScaling = K / p1.individualCount;
+}
+10000 late() {
+	//catn("elapsed: " + _stopBenchmark());
+
+	// summarize results
+	catn("### NO SUMMARY ###");
+}
