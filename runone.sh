@@ -107,7 +107,7 @@ for ((i=1;i<=replicates;i++)) ; do
     elif [ -z "${threadcount}" ] ; then
         output=$(./slim_single -time -mem -s ${i} -l 0 ${modelpath} 2>&1)
     else
-        output=$(./slim_multi -time -mem -s ${i} -l 0 -maxthreads ${threadcount} ${modelpath} 2>&1)
+        output=$(./slim_multi -time -mem -s ${i} -l 0 -maxThreads ${threadcount} ${modelpath} 2>&1)
     fi
 
     #if an error occurs, it is useful to uncomment this line to see it

@@ -1,0 +1,31 @@
+/*
+	This exercises Eidos function sort(string x)
+*/
+
+initialize() { }
+1 early() {
+	o = asString(repEach(1000001:2000000, 2));	// known correct order
+	x = sample(o, 2000000, replace=F);	// scrambled
+	
+	incorrect = 0;
+	totalTime = 0;
+	for (i in 1:20)
+	{
+		// We want to check every result for this test, so we time each iteration
+		start = clock("mono");
+		y = sort(x);
+		end = clock("mono");
+		totalTime = totalTime + (end - start);
+		
+		if (!identical(o, y))
+			incorrect = incorrect + 1;
+	}
+	
+	catn("// ********** Benchmark time: " + totalTime);
+	
+	// summarize results
+	if (incorrect == 0)
+		catn("### ALL CORRECT ###");
+	else
+		catn("### *** " + incorrect + " INCORRECT *** ###");
+}
