@@ -11,8 +11,9 @@ sem <- function(x) sd(x)/sqrt(length(x))
 
 # change to the SLiM-Benchmarks folder you want to plot, wherever that lives
 #setwd("~/Desktop/benchmarking/SLiM-Benchmarks")
-#setwd("~/Desktop/benchmarking/STUDIO 2023-08-07")
-setwd("~/Desktop/SLiM-Benchmarks")
+#setwd("~/Desktop/benchmarking/STUDIO 2023-08-12")
+setwd("~/Desktop/benchmarking/BHPC 2023-08-12")
+#setwd("~/Desktop/SLiM-Benchmarks")
 
 for (model_type in c("C", "D", "E", "I", "M", "P", "Q", "R", "S", "V", "X"))
 {
