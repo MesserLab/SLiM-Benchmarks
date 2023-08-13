@@ -66,7 +66,9 @@ REPS=5
 #bash ./runmulti.sh I_MUTRUN_FREE ${REPS}
 #bash ./runmulti.sh I_PARENTS_CLEAR ${REPS}
 #bash ./runmulti.sh I_SIMPLIFY_CORE ${REPS}
-#bash ./runmulti.sh I_SIMPLIFY_SORT ${REPS}
+bash ./runmulti.sh I_SIMPLIFY_SORT_PRE ${REPS}
+bash ./runmulti.sh I_SIMPLIFY_SORT ${REPS}
+bash ./runmulti.sh I_SIMPLIFY_SORT_POST ${REPS}
 #bash ./runmulti.sh I_SURVIVAL ${REPS}
 #bash ./runmulti.sh I_UNIQUE_MUTRUNS ${REPS}
 #bash ./runmulti.sh I_WF_REPRO ${REPS}
@@ -100,9 +102,9 @@ REPS=5
 #bash ./runmulti.sh P_SET_SPATIAL_POS_2_3D ${REPS}
 #bash ./runmulti.sh P_SPATIAL_MAP_VALUE ${REPS}
 
-bash ./runmulti.sh Q_SORT_INTEGER ${REPS}
-bash ./runmulti.sh Q_SORT_FLOAT ${REPS}
-bash ./runmulti.sh Q_SORT_STRING ${REPS}
+#bash ./runmulti.sh Q_SORT_INTEGER ${REPS}
+#bash ./runmulti.sh Q_SORT_FLOAT ${REPS}
+#bash ./runmulti.sh Q_SORT_STRING ${REPS}
 
 #bash ./runmulti.sh R_DNORM_1 ${REPS}
 #bash ./runmulti.sh R_DNORM_2 ${REPS}
