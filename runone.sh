@@ -90,6 +90,7 @@ fi
 
 
 # Run the replicates; "test" time is wall clock time measured by the test itself
+# Note -perTaskThreads is used for slim_multi runs to override the default per-task thread counts
 cpuregex='CPU time used: ([0-9.]+)'
 wallregex='Wall time used: ([0-9.]+)'
 testregex='Benchmark time: ([0-9.]+)'
@@ -107,7 +108,7 @@ for ((i=1;i<=replicates;i++)) ; do
     elif [ -z "${threadcount}" ] ; then
         output=$(./slim_single -time -mem -s ${i} -l 0 ${modelpath} 2>&1)
     else
-        output=$(./slim_multi -time -mem -s ${i} -l 0 -maxThreads ${threadcount} ${modelpath} 2>&1)
+        output=$(./slim_multi -time -mem -s ${i} -l 0 -maxThreads ${threadcount} -perTaskThreads "maxThreads" ${modelpath} 2>&1)
     fi
 
     #if an error occurs, it is useful to uncomment this line to see it
